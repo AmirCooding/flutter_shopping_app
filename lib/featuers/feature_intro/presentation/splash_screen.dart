@@ -1,3 +1,4 @@
+import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
 import 'package:ustore/theme/app_colors.dart';
@@ -17,11 +18,16 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                  child: Image.asset(
-                      isDarkMode
-                          ? 'assets/images/text_logo_ustore_dark.png'
-                          : 'assets/images/text_logo_ustore_light.png',
-                      width: width * 0.8)),
+                  child: DelayedWidget(
+                delayDuration: const Duration(milliseconds: 500),
+                animationDuration: const Duration(milliseconds: 3000),
+                animation: DelayedAnimations.SLIDE_FROM_LEFT,
+                child: Image.asset(
+                    isDarkMode
+                        ? 'assets/images/text_logo_ustore_dark.png'
+                        : 'assets/images/text_logo_ustore_light.png',
+                    width: width * 0.8),
+              )),
               Text("data"),
               SizedBox(height: 30),
             ],
