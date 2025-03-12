@@ -52,7 +52,7 @@ The main goal of this project is to combine practical application development wi
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/AmirCoodingflutter-shopping-app.git
+   git clone https://github.com/AmirCooding/flutter-shopping-app.git
    ```
 2. Navigate to the project directory:
    ```sh
