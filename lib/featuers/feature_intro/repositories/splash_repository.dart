@@ -1,3 +1,3 @@
 abstract class SplashRepository {
-  checkConnectivity();
+  Future<bool> checkConnectivity();
 }
