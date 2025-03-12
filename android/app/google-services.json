@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "689460655392",
+    "project_id": "u-store-b9593",
+    "storage_bucket": "u-store-b9593.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689460655392:android:5e93dde0c16cff8ad85345",
+        "android_client_info": {
+          "package_name": "com.example.ustore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689460655392-8rjvv0aqjav1c59pgcnt6vbbsffi6qdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvakXJv_0oAFrLlWco2jjciR_DFAjdMs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689460655392-8rjvv0aqjav1c59pgcnt6vbbsffi6qdl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "689460655392-3l5jk10s98lqieutdp0fnpbo3bkn1vgk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Amircooding.UStore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
