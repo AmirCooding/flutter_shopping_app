@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ustore/featuers/feature_intro/bloc/splash/splash_cubit.dart';
 import 'package:ustore/featuers/feature_intro/presentation/splash_screen.dart';
 import 'package:ustore/firebase_options.dart';
+import 'package:ustore/setup_locator.dart';
 import 'package:ustore/theme/app_theme.dart';
 
 void main() async {
@@ -9,7 +12,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  setupLocator();
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (context) => SplashCubit(usecaseSplash: locator())),
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
