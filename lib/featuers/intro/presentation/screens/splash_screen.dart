@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
 import 'package:ustore/theme/app_colors.dart';
-import 'package:ustore/theme/app_font.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -34,8 +33,10 @@ class _SplashScreenState extends State<SplashScreen> {
         body: BlocListener<SplashCubit, SplashState>(
           listener: (context, state) {
             debugPrint("Current State: ${state.connectionStatus}");
-
-            if (state.connectionStatus is ConnectionOff) {
+            if (state is ConnectionInitial) {
+              debugPrint("Navigating to /loading");
+              Navigator.pushReplacementNamed(context, '/loading');
+            } else if (state.connectionStatus is ConnectionOff) {
               debugPrint("Navigating to /no_internet");
               Navigator.pushReplacementNamed(context, '/no_internet');
             } else if (state.connectionStatus is ConnectionOn) {

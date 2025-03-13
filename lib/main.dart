@@ -27,12 +27,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/splash',
+      routes: {
+        '/splash': (context) => const SplashScreen(),
+        '/home': (context) => const HomeScreen(),
+        '/no_internet': (context) => const NoInternent(),
+        'loading': (context) => const LoadingScreen(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'UStore',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: LoadingScreen(),
     );
   }
 }
