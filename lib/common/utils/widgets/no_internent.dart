@@ -7,6 +7,7 @@ import 'package:ustore/theme/app_colors.dart';
 import 'package:ustore/theme/app_font.dart';
 
 class NoInternet extends StatelessWidget {
+  static const String routeName = '/no_internet';
   const NoInternet({super.key});
 
   @override
@@ -17,8 +18,7 @@ class NoInternet extends StatelessWidget {
       body: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state.connectionStatus is ConnectionOn) {
-            print("Internet ist wieder da! Navigiere zu /home");
-            Navigator.pushReplacementNamed(context, '/home');
+            Navigator.pushReplacementNamed(context, '/home_screen');
           }
         },
         child: BlocBuilder<SplashCubit, SplashState>(

@@ -6,6 +6,7 @@ import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart
 import 'package:ustore/theme/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const String routeName = '/splash_screen';
   const SplashScreen({super.key});
 
   @override
@@ -32,16 +33,12 @@ class _SplashScreenState extends State<SplashScreen> {
             isDarkMode ? AppColors.backgroundDark : AppColors.background,
         body: BlocListener<SplashCubit, SplashState>(
           listener: (context, state) {
-            debugPrint("Current State: ${state.connectionStatus}");
             if (state is ConnectionInitial) {
-              debugPrint("Navigating to /loading");
-              Navigator.pushReplacementNamed(context, '/loading');
+              Navigator.pushReplacementNamed(context, '/loading_screen');
             } else if (state.connectionStatus is ConnectionOff) {
-              debugPrint("Navigating to /no_internet");
-              Navigator.pushReplacementNamed(context, '/no_internet');
+              Navigator.pushReplacementNamed(context, '/no_internet_screen');
             } else if (state.connectionStatus is ConnectionOn) {
-              debugPrint(" Navigating to /home");
-              Navigator.pushReplacementNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home_screen');
             }
           },
           child: Center(

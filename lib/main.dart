@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/splash',
       routes: {
-        '/splash': (context) => const SplashScreen(),
-        '/home': (context) => const HomeScreen(),
-        '/no_internet': (context) => const NoInternet(),
-        'loading': (context) => const LoadingScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        NoInternet.routeName: (context) => const NoInternet(),
+        LoadingScreen.routeName: (context) => const LoadingScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'UStore',
