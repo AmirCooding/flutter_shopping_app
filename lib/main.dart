@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/splash': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
-        '/no_internet': (context) => const NoInternent(),
+        '/no_internet': (context) => const NoInternet(),
         'loading': (context) => const LoadingScreen(),
       },
       debugShowCheckedModeBanner: false,
