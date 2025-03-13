@@ -23,7 +23,7 @@ class AppFont {
     fontFamily: fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w400, // 400
-    color: AppColors.textSecondary,
+    color: AppColors.greyDark,
   );
 
   static const TextStyle lightCaption = TextStyle(
@@ -52,7 +52,7 @@ class AppFont {
     fontFamily: fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w400, // 400
-    color: AppColors.textSecondary,
+    color: AppColors.grey,
   );
 
   static const TextStyle darkCaption = TextStyle(

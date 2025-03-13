@@ -1,22 +1,22 @@
 import 'package:get_it/get_it.dart';
-import 'package:ustore/featuers/feature_intro/bloc/splash/splash_cubit.dart';
-import 'package:ustore/featuers/feature_intro/repositories/splash_repository_impl.dart';
-import 'package:ustore/featuers/feature_intro/usecase/usecase_splash.dart';
+import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
+import 'package:ustore/featuers/intro/repositories/splash_repository.dart';
+import 'package:ustore/featuers/intro/repositories/splash_repository_impl.dart';
+import 'package:ustore/featuers/intro/usecase/usecase_splash.dart';
 
 final GetIt locator = GetIt.instance;
 
-setupLocator() {
-  ////////////// Splash /////////////////
+void setupLocator() {
+  // 1️⃣ Register SplashRepositoryImpl as LazySingleton
+  locator.registerLazySingleton<SplashRepository>(() => SplashRepositoryImpl());
 
-// Register a singleton instance that is created lazily when first accessed.
-// ثبت یک اینستنس سینگل‌تون که به صورت تنبل و در اولین دسترسی ساخته می‌شود.
-  locator.registerLazySingleton(() => SplashRepositoryImpl());
+  // 2️⃣ Register UsecaseSplash AFTER SplashRepository is registered
+  locator.registerLazySingleton<UsecaseSplash>(
+    () => UsecaseSplash(splashRepository: locator<SplashRepository>()),
+  );
 
-// Register a singleton instance that is created immediately and shared throughout the app.
-// ثبت یک اینستنس سینگل‌تون که بلافاصله ساخته می‌شود و در سرتاسر اپلیکیشن به اشتراک گذاشته می‌شود.
-  locator.registerSingleton(() => UsecaseSplash(splashRepository: locator()));
-
-  // Register a factory that creates a new instance every time it is requested.
-  // ثبت یک کارخانه که هر بار یک اینستنس جدید ایجاد می‌کند.
-  locator.registerFactory(() => SplashCubit(usecaseSplash: locator()));
+  // 3️⃣ Register SplashCubit AFTER UsecaseSplash is registered
+  locator.registerFactory<SplashCubit>(
+    () => SplashCubit(usecaseSplash: locator<UsecaseSplash>()),
+  );
 }

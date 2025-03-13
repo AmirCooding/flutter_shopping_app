@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:ustore/featuers/feature_intro/repositories/splash_repository.dart';
+import 'package:ustore/featuers/intro/repositories/splash_repository.dart';
 
 class SplashRepositoryImpl implements SplashRepository {
   @override
