@@ -7,7 +7,7 @@ import 'package:ustore/theme/app_colors.dart';
 import 'package:ustore/theme/app_font.dart';
 
 class NoInternet extends StatelessWidget {
-  static const String routeName = '/no_internet';
+  static const String nointernet = '/no_internet';
   const NoInternet({super.key});
 
   @override

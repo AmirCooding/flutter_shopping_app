@@ -5,7 +5,7 @@ import 'package:ustore/theme/app_colors.dart';
 import 'package:ustore/theme/app_font.dart';
 
 class LoadingScreen extends StatelessWidget {
-  static const String routeName = '/loading_screen';
+  static const String loading = '/loading';
   const LoadingScreen({super.key});
 
   @override
