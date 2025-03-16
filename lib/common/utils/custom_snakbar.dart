@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ustore/theme/app_colors.dart';
+import 'package:ustore/config/theme/app_colors.dart';
 
 class CustomSnakbar {
   static showSnackSuccess(context, String message) {

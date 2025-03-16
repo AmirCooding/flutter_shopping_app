@@ -2,8 +2,11 @@ import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
+import 'package:ustore/common/utils/widgets/loading_screen.dart';
+import 'package:ustore/common/utils/widgets/no_internent.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
-import 'package:ustore/theme/app_colors.dart';
+import 'package:ustore/config/theme/app_colors.dart';
+import 'package:ustore/featuers/intro/presentation/screens/intro_main_wrapper.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String splash = '/splash';
@@ -34,11 +37,12 @@ class _SplashScreenState extends State<SplashScreen> {
         body: BlocListener<SplashCubit, SplashState>(
           listener: (context, state) {
             if (state is ConnectionInitial) {
-              Navigator.pushReplacementNamed(context, '/loading');
+              Navigator.pushReplacementNamed(context, LoadingScreen.loading);
             } else if (state.connectionStatus is ConnectionOff) {
-              Navigator.pushReplacementNamed(context, '/no_internetn');
+              Navigator.pushReplacementNamed(context, NoInternet.nointernet);
             } else if (state.connectionStatus is ConnectionOn) {
-              Navigator.pushReplacementNamed(context, '/onboarding');
+              Navigator.pushReplacementNamed(
+                  context, IntroMainWrapper.introMainWrapper);
             }
           },
           child: Center(
@@ -46,10 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
               delayDuration: const Duration(milliseconds: 500),
               animationDuration: const Duration(milliseconds: 3000),
               animation: DelayedAnimations.SLIDE_FROM_LEFT,
-              child: Image.asset(
-                  isDarkMode
-                      ? 'assets/images/text_logo_ustore_dark.png'
-                      : 'assets/images/text_logo_ustore_light.png',
+              child: Image.asset('assets/images/text_logo_ustore.png',
                   width: width * 0.8),
             ),
           ),

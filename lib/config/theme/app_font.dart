@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart'; // Stelle sicher, dass du deine AppColors importierst
+import 'app_colors.dart';
 
 class AppFont {
   static const String fontFamily = 'Poppins';
 
   // **Light Theme Text Styles**
-  static const TextStyle lightHeading = TextStyle(
+  static TextStyle lightHeading = TextStyle(
     fontFamily: fontFamily,
     fontSize: 24,
     fontWeight: FontWeight.bold, // 700
@@ -93,5 +93,13 @@ class AppFont {
     fontWeight: FontWeight.w300, // Light
     fontStyle: FontStyle.italic,
     color: AppColors.greyDark,
+  );
+
+  static const TextStyle getStatrtBtn = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 18,
+    fontWeight: FontWeight.w400, // Light
+    fontStyle: FontStyle.normal,
+    color: AppColors.textWhite,
   );
 }

@@ -2,8 +2,8 @@ import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
-import 'package:ustore/theme/app_colors.dart';
-import 'package:ustore/theme/app_font.dart';
+import 'package:ustore/config/theme/app_colors.dart';
+import 'package:ustore/config/theme/app_font.dart';
 
 class Intropage extends StatelessWidget {
   final String title;
@@ -29,7 +29,7 @@ class Intropage extends StatelessWidget {
           DelayedWidget(
               delayDuration: const Duration(milliseconds: 500),
               animationDuration: const Duration(seconds: 1),
-              animation: DelayedAnimations.SLIDE_FROM_RIGHT,
+              animation: DelayedAnimations.SLIDE_FROM_BOTTOM,
               child: Shimmer.fromColors(
                   baseColor: isDarkMode ? AppColors.greyLight : AppColors.grey,
                   highlightColor: isDarkMode

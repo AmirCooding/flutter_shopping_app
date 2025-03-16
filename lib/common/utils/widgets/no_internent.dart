@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
-import 'package:ustore/theme/app_colors.dart';
-import 'package:ustore/theme/app_font.dart';
+import 'package:ustore/config/theme/app_colors.dart';
+import 'package:ustore/config/theme/app_font.dart';
 
 class NoInternet extends StatelessWidget {
   static const String nointernet = '/no_internet';
