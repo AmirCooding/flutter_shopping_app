@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:ustore/featuers/intro/usecase/usecase_splash.dart';
+import 'package:ustore/featuers/intro/usecase/intro_usecase.dart';
 
 part 'splash_state.dart';
 part 'connection_status.dart';
 
 class SplashCubit extends Cubit<SplashState> {
-  UsecaseSplash usecaseSplash;
+  IntroUsecase usecaseSplash;
   SplashCubit({required this.usecaseSplash})
       : super(SplashState(connectionStatus: ConnectionInitial()));
 

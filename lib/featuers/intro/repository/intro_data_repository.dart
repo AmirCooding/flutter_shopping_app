@@ -1,3 +1,3 @@
-abstract class SplashRepository {
+abstract class IntroDataRepository {
   Future<bool> checkConnectivity();
 }

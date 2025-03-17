@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:ustore/featuers/intro/repositories/splash_repository.dart';
+import 'package:ustore/featuers/intro/repository/intro_data_repository.dart';
 
-class SplashRepositoryImpl implements SplashRepository {
+class SplashRepositoryImpl implements IntroDataRepository {
   @override
   Future<bool> checkConnectivity() async {
     // check if the device is connected to the internet

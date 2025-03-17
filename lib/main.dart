@@ -7,6 +7,7 @@ import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/intro/intro_cubit.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
 import 'package:ustore/featuers/intro/presentation/screens/intro_main_wrapper.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ustore/featuers/intro/presentation/screens/splash_screen.dart';
 import 'package:ustore/firebase_options.dart';
 import 'package:ustore/setup_locator.dart';
@@ -37,6 +38,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: const Locale('en', 'US'),
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('de', 'DE'),
+      ],
+      // Routes
       initialRoute: SplashScreen.splash,
       routes: {
         SplashScreen.splash: (context) => const SplashScreen(),

@@ -6,7 +6,7 @@ abstract class IntroState extends Equatable {
   const IntroState({required this.pageIndex});
 
   @override
-  List<Object> get props => [pageIndex]; // Optimierung für BlocBuilder
+  List<Object> get props => [pageIndex];
 }
 
 final class IntroInitial extends IntroState {
