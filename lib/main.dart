@@ -22,11 +22,11 @@ void main() async {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
-        create: (context) => SplashCubit(usecaseSplash: locator()),
+        create: (context) => SplashCubit(introUsecase: locator()),
       ),
       BlocProvider(
-        create: (context) => IntroCubit(),
-      ),
+        create: (context) => IntroCubit(locator()),
+      )
     ],
     child: MyApp(),
   ));

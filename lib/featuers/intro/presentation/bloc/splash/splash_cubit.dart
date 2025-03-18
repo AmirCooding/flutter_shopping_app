@@ -6,13 +6,13 @@ part 'splash_state.dart';
 part 'connection_status.dart';
 
 class SplashCubit extends Cubit<SplashState> {
-  IntroUsecase usecaseSplash;
-  SplashCubit({required this.usecaseSplash})
+  IntroUsecase introUsecase;
+  SplashCubit({required this.introUsecase})
       : super(SplashState(connectionStatus: ConnectionInitial()));
 
   void checkConnectionEvent() async {
     emit(state.copyWith(newConnectionStatus: ConnectionInitial()));
-    final isConnected = await usecaseSplash.checkConnectionEvent();
+    final isConnected = await introUsecase.checkConnectionEvent();
     if (isConnected) {
       emit(state.copyWith(newConnectionStatus: ConnectionOn()));
     } else {
