@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:ustore/common/utils/localization/intro_localization.dart';
-import 'package:ustore/data/remote/firbase_service/firbase_firestore/firestore_intro_service.dart';
+import 'package:ustore/common/utils/models/intro_localization.dart';
+import 'package:ustore/data/remote/firbase_service/firbase_firestore/intro_firebase_service.dart';
 
 import 'firestore_intro_service_test.mocks.dart';
 
@@ -20,7 +20,7 @@ void main() {
   late MockDocumentReference<Map<String, dynamic>> mockDocumentEn;
   late MockDocumentSnapshot<Map<String, dynamic>> mockDocumentSnapshotDe;
   late MockDocumentSnapshot<Map<String, dynamic>> mockDocumentSnapshotEn;
-  late FirestoreIntroService firestoreIntroService;
+  late IntroFirbaseService firestoreIntroService;
 
   setUp(() {
     mockFirestore = MockFirebaseFirestore();
@@ -30,7 +30,7 @@ void main() {
     mockDocumentSnapshotDe = MockDocumentSnapshot<Map<String, dynamic>>();
     mockDocumentSnapshotEn = MockDocumentSnapshot<Map<String, dynamic>>();
 
-    firestoreIntroService = FirestoreIntroService(firestore: mockFirestore);
+    firestoreIntroService = IntroFirbaseService(firestore: mockFirestore);
 
     // Mock Firestore behavior for English (DE)
     when(mockFirestore.collection('localization')).thenReturn(mockCollection);
