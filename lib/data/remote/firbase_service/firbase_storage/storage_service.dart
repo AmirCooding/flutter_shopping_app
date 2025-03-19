@@ -1,11 +1,11 @@
 import 'package:firebase_storage/firebase_storage.dart';
 
-class IntroStorageService {
+class StorageService {
   final FirebaseStorage firebaseStorage;
-  IntroStorageService({required this.firebaseStorage});
+  StorageService({required this.firebaseStorage});
 
-  Future<List<String>> fetchIntroImages() async {
-    ListResult result = await firebaseStorage.ref('intro').listAll();
+  Future<List<String>> fetchIntroImages(String folderName) async {
+    ListResult result = await firebaseStorage.ref(folderName).listAll();
     List<String> imageUrls = [];
 
     for (var item in result.items) {
