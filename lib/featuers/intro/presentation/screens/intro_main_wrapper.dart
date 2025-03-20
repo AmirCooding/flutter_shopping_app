@@ -1,47 +1,34 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ustore/common/constant/display_dimensions.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
-import 'package:ustore/data/remote/firbase_service/firbase_firestore/intro_firebase_service.dart';
+import 'package:ustore/config/theme/app_colors.dart';
+import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/intro/intro_cubit.dart';
 import 'package:ustore/featuers/intro/presentation/widgets/get_statrt_btn.dart';
 import 'package:ustore/featuers/intro/presentation/widgets/intro_page.dart';
-import 'package:ustore/featuers/intro/repository/intro_repository_impl.dart';
-import 'package:ustore/featuers/intro/usecase/intro_usecase.dart';
-import 'package:ustore/gen/assets.gen.dart';
-import 'package:ustore/config/theme/app_colors.dart';
+import 'package:ustore/common/utils/widgets/loading_screen.dart';
 
-class IntroMainWrapper extends StatelessWidget {
+class IntroMainWrapper extends StatefulWidget {
   static const String introMainWrapper = '/intro_main_wrapper';
+
+  const IntroMainWrapper({super.key});
+
+  @override
+  State<IntroMainWrapper> createState() => _IntroMainWrapperState();
+}
+
+class _IntroMainWrapperState extends State<IntroMainWrapper> {
   final PageController pageController = PageController();
+  int currentIndex = 0;
 
-  IntroMainWrapper({super.key});
-
-  final List<String> images = [
-    Assets.images.onboarding1.path,
-    Assets.images.onboarding2.path,
-    Assets.images.onboarding3.path,
-  ];
-
-  final List<Widget> introPages = [
-    Intropage(
-      title: "Clothing",
-      description:
-          "Discover a wide range of stylish clothing for every occasion. Find the latest trends and timeless fashion to complete your perfect look.",
-    ),
-    Intropage(
-      title: "Jewelry",
-      description:
-          "Elegant jewelry pieces to enhance your style. From sparkling rings to sophisticated necklaces, find the perfect accessory for any outfit.",
-    ),
-    Intropage(
-      title: "Appliances",
-      description:
-          "High-quality home appliances designed to make your life easier. Explore innovative technology for your kitchen, cleaning, and more.",
-    ),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() => context.read<IntroCubit>().getintroPagesData());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,98 +36,144 @@ class IntroMainWrapper extends StatelessWidget {
     final width = screenWidth(context);
     final height = screenHeight(context);
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: BlocBuilder<IntroCubit, IntroState>(
-              builder: (context, state) {
-                return Container(
-                  height: height * 0.6,
-                  decoration: BoxDecoration(
-                    color: isDarkMode
-                        ? AppColors.accentDark
-                        : AppColors.accentLight,
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(150),
-                    ),
-                  ),
-                  child: Center(
-                    child: Image.asset(images[0], width: width * 0.8),
-                  ),
-                );
-              },
-            ),
-          ),
-          Positioned(
-            bottom: height * 0.35,
-            left: 0,
-            right: 0,
-            child: BlocBuilder<IntroCubit, IntroState>(
-              builder: (context, state) {
-                return Center(
-                  child: SmoothPageIndicator(
-                    controller: pageController,
-                    count: introPages.length,
-                    effect: ExpandingDotsEffect(
-                      dotColor: Colors.grey,
-                      activeDotColor: isDarkMode
+    return BlocConsumer<IntroCubit, IntroState>(
+      listener: (context, state) {
+        if (state is IntroErrorState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.message)),
+          );
+        }
+      },
+      builder: (context, state) {
+        if (state is IntroLoadingState) {
+          return const LoadingScreen();
+        }
+
+        if (state is IntroLoadedState) {
+          return Scaffold(
+            body: Stack(
+              children: [
+                // background (changed page)
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    height: height * 0.6,
+                    decoration: BoxDecoration(
+                      color: isDarkMode
                           ? AppColors.accentDark
                           : AppColors.accentLight,
-                      dotHeight: 10,
-                      dotWidth: 10,
+                      borderRadius: const BorderRadius.only(
+                        bottomRight: Radius.circular(150),
+                      ),
+                    ),
+                    child: Center(
+                      child: Image.network(
+                        state.introPage.isNotEmpty
+                            ? state.introPage[currentIndex].image
+                            : '',
+                        width: width * 0.8,
+                        fit: BoxFit.cover,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) {
+                            return child; // Bild ist vollständig geladen
+                          }
+                          return Center(
+                            child: LoadingAnimationWidget.threeArchedCircle(
+                                size: 30, color: AppColors.grey),
+                          );
+                        },
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Center(
+                              child: Icon(Icons.error, color: Colors.red));
+                        },
+                      ),
                     ),
                   ),
-                );
-              },
-            ),
-          ),
+                ),
 
-          // PageView für Intro-Seiten
-          Positioned(
-            bottom: height * 0.1,
-            width: width,
-            child: SizedBox(
-              width: width,
-              height: height * 0.2,
-              child: PageView.builder(
-                controller: pageController,
-                itemCount: introPages.length,
-                onPageChanged: (index) {},
-                itemBuilder: (context, index) {
-                  return introPages[index];
-                },
-              ),
-            ),
-          ),
+                // Seiten-Indikator
+                Positioned(
+                  bottom: height * 0.35,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: SmoothPageIndicator(
+                      controller: pageController,
+                      count: state.introPage.length,
+                      effect: ExpandingDotsEffect(
+                        dotColor: Colors.grey,
+                        activeDotColor: isDarkMode
+                            ? AppColors.accentDark
+                            : AppColors.accentLight,
+                        dotHeight: 10,
+                        dotWidth: 10,
+                      ),
+                    ),
+                  ),
+                ),
 
-          Positioned(
-            bottom: height * 0.06,
-            right: width * 0.1,
-            child: BlocBuilder<IntroCubit, IntroState>(
-              builder: (context, state) {
-                return GetStatrtBtn(
-                  text: 0 < introPages.length - 1 ? "Next" : "Finish",
-                  onPressed: () {
-                    if (0 < introPages.length - 1) {
-                      pageController.animateToPage(
-                        0 + 1,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    } else {
-                      Navigator.pushReplacementNamed(context, '/home_screen');
-                    }
-                  },
-                );
-              },
+                // PageView (Intro-Seiten)
+                Positioned(
+                  bottom: height * 0.1,
+                  width: width,
+                  child: SizedBox(
+                    width: width,
+                    height: height * 0.2,
+                    child: PageView.builder(
+                      controller: pageController,
+                      itemCount: state.introPage.length,
+                      onPageChanged: (index) {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                        context.read<IntroCubit>().changePage(index);
+                      },
+                      itemBuilder: (context, index) {
+                        final page = state.introPage[index];
+                        return Intropage(
+                          title: page.introLocalization.title,
+                          description: page.introLocalization.description,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+
+                // "Next" oder "Finish" Button
+                Positioned(
+                  bottom: height * 0.06,
+                  right: width * 0.1,
+                  child: GetStatrtBtn(
+                    text: currentIndex < state.introPage.length - 1
+                        ? "Next"
+                        : "Finish",
+                    onPressed: () {
+                      if (currentIndex < state.introPage.length - 1) {
+                        pageController.animateToPage(
+                          currentIndex + 1,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                        setState(() {
+                          currentIndex += 1;
+                        });
+                        context.read<IntroCubit>().changePage(currentIndex);
+                      } else {
+                        Navigator.pushReplacementNamed(
+                            context, HomeScreen.home);
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
+          );
+        }
+
+        return const Center(child: Text("Something went wrong!"));
+      },
     );
   }
 }

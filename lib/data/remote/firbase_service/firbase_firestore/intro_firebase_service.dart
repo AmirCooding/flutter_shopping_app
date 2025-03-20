@@ -1,51 +1,33 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ustore/common/utils/models/intro_localization.dart';
+import 'package:ustore/common/utils/models/intro_page.dart';
 
 class IntroFirbaseService {
   final FirebaseFirestore firestore;
-
   IntroFirbaseService({required this.firestore});
-
-  Future<List<IntroLocalization>> getIntroLocalizationDe() async {
+  Future<List<IntroPage>> getIntroLocalization(String locale) async {
     try {
-      final QuerySnapshot<Map<String, dynamic>> querySnapshot = await firestore
+      final docSnapshot = await firestore
           .collection('localization')
-          .doc('localization_de')
-          .collection('intro')
+          .doc('localization_$locale')
           .get();
-      if (querySnapshot.docs.isEmpty) {
-        debugPrint('No data found from get Intro localization DE ');
+      if (!docSnapshot.exists) {
         return [];
       }
-      return querySnapshot.docs
-          .map((doc) => IntroLocalization.fromJson(doc.data()))
-          .toList();
-    } catch (e) {
-      debugPrint(e.toString());
-      return [];
-    }
-  }
-
-// This function is used to get the intro localization in English
-
-  Future<List<IntroLocalization>> getIntroLocalizationEn() async {
-    try {
-      final QuerySnapshot<Map<String, dynamic>> querySnapshot = await firestore
-          .collection('localization')
-          .doc('localization_en')
-          .collection('intro')
-          .get();
-      if (querySnapshot.docs.isEmpty) {
-        debugPrint('No data found from get Intro localization En ');
+      final data = docSnapshot.data();
+      if (data == null || data['intro'] == null) {
+        debugPrint("⚠️ No 'intro' field found in localization_$locale");
         return [];
       }
-      return querySnapshot.docs
-          .map((doc) => IntroLocalization.fromJson(doc.data()))
+      final List<dynamic> introList = data['intro'];
+      return introList
+          .whereType<Map<String, dynamic>>()
+          .map((intro) => IntroPage.fromJson(intro))
           .toList();
-    } catch (e) {
-      debugPrint(e.toString());
-      return [];
+    } catch (e, stacktrace) {
+      debugPrint("❌ Error fetching intro localization ($locale): $e");
+      debugPrint("🔍 Stacktrace: $stacktrace");
+      return []; // 🔹 Stelle sicher, dass eine **Liste zurückgegeben** wird!
     }
   }
 }

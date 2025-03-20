@@ -18,7 +18,10 @@ class NoInternet extends StatelessWidget {
       body: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state.connectionStatus is ConnectionOn) {
-            Navigator.pushReplacementNamed(context, '/home_screen');
+            if (ModalRoute.of(context)!.settings.name ==
+                NoInternet.nointernet) {
+              Navigator.of(context).pop();
+            }
           }
         },
         child: BlocBuilder<SplashCubit, SplashState>(

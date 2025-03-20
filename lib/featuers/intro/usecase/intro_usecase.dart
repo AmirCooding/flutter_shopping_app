@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ustore/common/utils/models/intro_localization.dart';
+import 'package:ustore/common/constant/language_manager.dart';
+
 import 'package:ustore/common/utils/models/intro_page.dart';
 import 'package:ustore/featuers/intro/repository/intro_data_repository.dart';
+import 'package:ustore/gen/assets.gen.dart';
 
 class IntroUsecase {
   final IntroDataRepository introRepository;
@@ -11,44 +13,45 @@ class IntroUsecase {
     return introRepository.checkConnectivity();
   }
 
-  Future<List<IntroPage>> getIntroPages(String localeCode) async {
+  Future<List<IntroPage>> getIntroPages() async {
+    final String localeCode = LanguageManager().locale;
+    List<IntroPage> introLocalization = [];
+    List<IntroPage> intropages = [];
+
     try {
-      // Fetch data from repositories
-      final List<String> images = await introRepository.fetchIntroImages();
-      final List<IntroLocalization> introLocalizationEn =
-          await introRepository.getIntroLocalizationEn();
-      final List<IntroLocalization> introLocalizationDe =
-          await introRepository.getIntroLocalizationDe();
+      introLocalization = await introRepository
+          .getIntroLocalization(localeCode)
+          .catchError((e) {
+        debugPrint("⚠️ Fehler beim Laden der Intro-Texte: $e");
+        return <IntroPage>[]; // ✅ Stelle sicher, dass eine Liste zurückgegeben wird!
+      });
 
-      // If any list is empty, return an empty list
-      if (images.isEmpty) {
-        throw Exception('No images found for intro pages');
-      }
-      if (localeCode == 'de' && introLocalizationDe.isEmpty) {
-        throw Exception('No German localization found');
-      }
-      if (localeCode != 'de' && introLocalizationEn.isEmpty) {
-        throw Exception('No English localization found');
+      if (introLocalization.isEmpty) {
+        debugPrint("⚠️ Keine Intro-Daten gefunden für Sprache: $localeCode");
+        return [];
       }
 
-      final List<IntroPage> introPages = [];
-      // Choose the correct localization list
-      final List<IntroLocalization> selectedLocalization =
-          (localeCode == 'de') ? introLocalizationDe : introLocalizationEn;
-      // Combine images and localization
-      for (int i = 0;
-          i < images.length && i < selectedLocalization.length;
-          i++) {
-        introPages.add(IntroPage(
-          image: images[i],
-          introLocalization: selectedLocalization[i],
-        ));
-      }
-      // Return the list of intro pages
-      return introPages;
-    } catch (e) {
-      debugPrint("Error fetching intro pages: $e");
-      // Return an empty list if there is an error
+      intropages = await Future.wait(introLocalization.map((intro) async {
+        final imageUrl = await introRepository
+                .fetchIntroImage(intro.image ?? '')
+                .catchError((e) {
+              debugPrint(
+                  "⚠️ Fehler beim Laden des Bildes: ${intro.image} → $e");
+              return Assets.images.logo.path; // ✅ Standardbild setzen!
+            }) ??
+            Assets.images.logo.path;
+
+        return IntroPage(
+          image: imageUrl,
+          introLocalization: intro.introLocalization,
+        );
+      }));
+
+      debugPrint('✅ Final introPages length: ${intropages.length}');
+      return intropages;
+    } catch (e, stacktrace) {
+      debugPrint("❌ Fehler beim Abrufen der Intro-Seiten: $e");
+      debugPrint("🔍 Stacktrace: $stacktrace");
       return [];
     }
   }

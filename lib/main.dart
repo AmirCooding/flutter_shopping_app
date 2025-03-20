@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ustore/common/constant/language_manager.dart';
 import 'package:ustore/common/utils/widgets/loading_screen.dart';
 import 'package:ustore/common/utils/widgets/no_internent.dart';
 import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
@@ -18,6 +19,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await LanguageManager().loadLanguage();
   setupLocator();
   runApp(MultiBlocProvider(
     providers: [

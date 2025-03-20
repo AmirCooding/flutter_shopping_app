@@ -1,13 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:ustore/common/utils/models/intro_localization.dart';
+import 'package:ustore/common/utils/models/intro_page.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_firestore/intro_firebase_service.dart';
-import 'package:ustore/data/remote/firbase_service/firbase_storage/intro_storage_service.dart';
+import 'package:ustore/data/remote/firbase_service/firbase_storage/storage_service.dart';
 import 'package:ustore/featuers/intro/repository/intro_data_repository.dart';
 
 class IntroDataRepositoryImpl implements IntroDataRepository {
   final IntroFirbaseService introFirbaseService;
-  final IntroStorageService introStorageService;
+  final StorageService introStorageService;
   IntroDataRepositoryImpl(this.introStorageService,
       {required this.introFirbaseService});
   @override
@@ -32,8 +33,8 @@ class IntroDataRepositoryImpl implements IntroDataRepository {
   }
 
   @override
-  Future<List<IntroLocalization>> getIntroLocalizationDe() {
-    return introFirbaseService.getIntroLocalizationDe().then((value) {
+  Future<List<IntroPage>> getIntroLocalization(String locale) {
+    return introFirbaseService.getIntroLocalization(locale).then((value) {
       if (value.isEmpty) {
         throw Exception('IntroLocalizationDe is empty or null');
       }
@@ -45,25 +46,15 @@ class IntroDataRepositoryImpl implements IntroDataRepository {
   }
 
   @override
-  Future<List<IntroLocalization>> getIntroLocalizationEn() {
-    return introFirbaseService.getIntroLocalizationEn().then((value) {
-      if (value.isEmpty) {
-        throw Exception('IntroLocalizationEn is empty or null');
+  Future<String?> fetchIntroImage(String path) {
+    return introStorageService.fetchIntroImage(path).then((value) {
+      if (value == null) {
+        throw Exception('Image not found');
       }
       return value;
     }).catchError((error) {
-      debugPrint("Error fetching localization: $error");
-      return [];
-    });
-  }
-
-  @override
-  Future<List<String>> fetchIntroImages() {
-    return introStorageService.fetchIntroImages().then((value) {
-      if (value.isEmpty) {
-        throw Exception('IntroImages is empty');
-      }
-      return value;
+      debugPrint("Error fetching image: $error");
+      return null;
     });
   }
 }

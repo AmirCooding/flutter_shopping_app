@@ -4,11 +4,9 @@ part of 'splash_cubit.dart';
 class SplashState {
   final ConnectionStatus connectionStatus;
   const SplashState({required this.connectionStatus});
-
-  SplashState copyWith({
-    ConnectionStatus? newConnectionStatus,
-  }) {
+  SplashState copyWith({ConnectionStatus? newConnectionStatus}) {
     return SplashState(
-        connectionStatus: newConnectionStatus ?? connectionStatus);
+      connectionStatus: newConnectionStatus ?? connectionStatus,
+    );
   }
 }

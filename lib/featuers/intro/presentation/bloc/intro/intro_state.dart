@@ -3,24 +3,26 @@ part of 'intro_cubit.dart';
 @immutable
 abstract class IntroState extends Equatable {
   const IntroState();
-
   @override
   List<Object> get props => [];
 }
 
-final class IntroLoading extends IntroState {}
-
-final class IntroSuccessLoaded extends IntroState {
-  final List<IntroPage> introPages;
-  const IntroSuccessLoaded(this.introPages);
-  @override
-  List<Object> get props => [introPages];
+final class IntroPageChanged extends IntroState {
+  final int pageIndex;
+  const IntroPageChanged({required this.pageIndex});
 }
 
-final class IntroError extends IntroState {
-  final String message;
-  const IntroError(this.message);
+final class IntroLoadingState extends IntroState {}
 
+final class IntroErrorState extends IntroState {
+  final String message;
+  const IntroErrorState({required this.message});
+}
+
+final class IntroLoadedState extends IntroState {
+  final List<IntroPage> introPage;
+  final int currentIndex;
+  const IntroLoadedState({required this.introPage, required this.currentIndex});
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [introPage, currentIndex];
 }
