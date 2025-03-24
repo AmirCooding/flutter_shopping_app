@@ -32,7 +32,7 @@ class _GetStatrtBtnState extends State<GetStatrtBtn>
     );
     fadeAnimaton = CurvedAnimation(
       parent: fadeController,
-      curve: Curves.easeInOut,
+      curve: Curves.easeInExpo,
     );
     fadeController.forward();
   }

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ustore/common/utils/models/intro_page.dart';
+import 'package:ustore/data/remote/api/store_api_service.dart';
 
 class IntroFirbaseService {
   final FirebaseFirestore firestore;
@@ -27,7 +28,7 @@ class IntroFirbaseService {
     } catch (e, stacktrace) {
       debugPrint("❌ Error fetching intro localization ($locale): $e");
       debugPrint("🔍 Stacktrace: $stacktrace");
-      return []; // 🔹 Stelle sicher, dass eine **Liste zurückgegeben** wird!
+      return [];
     }
   }
 }

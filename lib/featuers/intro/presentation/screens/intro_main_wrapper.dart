@@ -1,15 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ustore/common/constant/display_dimensions.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
+import 'package:ustore/common/utils/prefs_operator.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/intro/intro_cubit.dart';
 import 'package:ustore/featuers/intro/presentation/widgets/get_statrt_btn.dart';
 import 'package:ustore/featuers/intro/presentation/widgets/intro_page.dart';
 import 'package:ustore/common/utils/widgets/loading_screen.dart';
+import 'package:ustore/locator.dart';
 
 class IntroMainWrapper extends StatefulWidget {
   static const String introMainWrapper = '/intro_main_wrapper';
@@ -159,10 +163,16 @@ class _IntroMainWrapperState extends State<IntroMainWrapper> {
                         setState(() {
                           currentIndex += 1;
                         });
-                        context.read<IntroCubit>().changePage(currentIndex);
+                        if (currentIndex == state.introPage.length - 1) {
+                          final prefsOperator = locator<PrefsOperator>();
+                          prefsOperator.changeIntroState();
+                          log('Intro is shown --------> $prefsOperator.changeIntroState()');
+                          context.read<IntroCubit>().changePage(currentIndex);
+                        }
+                        //  context.read<IntroCubit>().changePage(currentIndex);
                       } else {
-                        Navigator.pushReplacementNamed(
-                            context, HomeScreen.home);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, HomeScreen.home, (route) => false);
                       }
                     },
                   ),
