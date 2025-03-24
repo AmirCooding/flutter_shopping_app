@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:ustore/common/constant/language_manager.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/config/theme/app_font.dart';
@@ -23,7 +24,7 @@ class LoadingScreen extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Loading...',
+              LanguageManager().locale == 'en' ? 'Loading...' : 'Laden...',
               style: isDarkMode ? AppFont.darkBody : AppFont.lightBody,
             ),
           ],
