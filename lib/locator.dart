@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:ustore/common/utils/prefs_operator.dart';
+import 'package:ustore/common/constant/prefs_operator.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_firestore/intro_firebase_service.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_storage/storage_service.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
@@ -28,5 +28,5 @@ void setupLocator() async {
       () => StorageService(firebaseStorage: locator()));
   locator.registerLazySingleton<IntroUsecase>(
       () => IntroUsecase(introRepository: locator()));
-  locator.registerFactory(() => SplashCubit(introUsecase: locator()));
+  //locator.registerFactory(() => SplashCubit(introUsecase: locator()));
 }
