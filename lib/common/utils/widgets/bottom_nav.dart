@@ -98,8 +98,8 @@ class NavBarItem extends StatelessWidget {
                 ? selecteditemsIcon
                 : unselecteditemsIcon,
             color: stateIndex == bottomNavCubit.state
-                ? (isDarkeMode ? AppColors.accentDark : AppColors.accent)
-                : AppColors.greyLight,
+                ? (isDarkeMode ? AppColors.accentDark : AppColors.accentLight)
+                : (isDarkeMode ? AppColors.greyLight : AppColors.greyDark),
           ),
           SizedBox(height: 5),
           Text(
@@ -115,7 +115,8 @@ class NavBarItem extends StatelessWidget {
                         : AppColors.accentLight)
                 : TextStyle(
                     fontSize: 14,
-                    color: isDarkeMode ? AppColors.greyLight : AppColors.grey),
+                    color:
+                        isDarkeMode ? AppColors.greyLight : AppColors.greyDark),
           ),
         ],
       ),

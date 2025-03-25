@@ -7,9 +7,8 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       body: Center(
-        child: Text('Favorite Screen'),
+        child: Text('Home Screen'),
       ),
     );
   }

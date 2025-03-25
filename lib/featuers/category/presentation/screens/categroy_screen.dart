@@ -6,9 +6,8 @@ class CategroyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
       body: Center(
-        child: Text('Categroy Screen'),
+        child: Text('Home Screen'),
       ),
     );
   }
