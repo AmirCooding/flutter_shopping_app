@@ -7,7 +7,7 @@ part 'connection_status.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   IntroUsecase introUsecase;
-  SplashCubit({required this.introUsecase})
+  SplashCubit(this.introUsecase)
       : super(SplashState(connectionStatus: ConnectionInitial()));
 
   void checkConnectionEvent() async {

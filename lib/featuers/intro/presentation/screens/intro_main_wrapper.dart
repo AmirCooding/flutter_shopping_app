@@ -6,7 +6,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ustore/common/constant/display_dimensions.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
-import 'package:ustore/common/utils/prefs_operator.dart';
+import 'package:ustore/common/constant/prefs_operator.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/intro/intro_cubit.dart';

@@ -4,9 +4,9 @@ import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/constant/theme_helper.dart';
-import 'package:ustore/common/utils/prefs_operator.dart';
+import 'package:ustore/common/constant/prefs_operator.dart';
+import 'package:ustore/common/utils/widgets/main_wrapper.dart';
 import 'package:ustore/common/utils/widgets/no_internent.dart';
-import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/featuers/intro/presentation/screens/intro_main_wrapper.dart';
@@ -52,7 +52,8 @@ class _SplashScreenState extends State<SplashScreen> {
             prefs.getIntroState().then((value) {
               if (value) {
                 log('Intro is shown --------> $value');
-                Navigator.pushReplacementNamed(context, HomeScreen.home);
+                Navigator.pushReplacementNamed(
+                    context, MainWrapper.mainWrapper);
               } else {
                 Navigator.pushReplacementNamed(
                     context, IntroMainWrapper.introMainWrapper);
