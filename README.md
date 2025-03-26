@@ -40,7 +40,7 @@ This project is a comprehensive online shopping application designed to provide 
 - **Navigation**: Persistent Bottom Navbar
 - **Network Requests**: Dio
 - **Database**: Firebase Firestore
-- **API**: [Firebase Firestore](https://fakestoreapi.com/)
+- **API**: [fakestoreapi](https://fakestoreapi.com/)
 - **Debugging & Logging**: Logger
 - **Data Synchronization**: Synchronize
 - **UI Enhancements**:
