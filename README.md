@@ -26,7 +26,7 @@ This project is a comprehensive online shopping application designed to provide 
 - **Push Notifications**: Stay updated with the latest deals and order updates.
 - **Search Functionality**: Find products easily with an advanced search and filter system.
 - **Multi-language Support**: Supports multiple languages using internationalization.
-- **And more...
+- **And more... .
 
 ## Technologies Used
 
