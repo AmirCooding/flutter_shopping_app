@@ -45,22 +45,25 @@ This project is a comprehensive online shopping application designed to provide 
 ## Modern Light Theme – German Edition
 
 <div style="display: flex; justify-content: space-between; flex-wrap: nowrap;">
-  <img src="https://github.com/user-attachments/assets/337e3063-253a-42f2-9055-6e8fe43f3aab" style="width: 150px; height: 300px;" alt="Bild 1">
+    <img src="https://github.com/user-attachments/assets/33228f24-5aea-47c7-a442-6c6077211818" style="width: 150px; height: 300px;" alt="Bild 1">
   <img src="https://github.com/user-attachments/assets/92b9c503-8ab3-4f3b-a3f5-a4c5918d0d1c" style="width: 150px; height: 300px;" alt="Bild 2">
   <img src="https://github.com/user-attachments/assets/b92ea2c4-e2ab-4567-ba97-626a1b18cdd4" style="width: 150px; height: 300px;" alt="Bild 3">
   <img src="https://github.com/user-attachments/assets/7aad5519-44f4-49b8-b60d-095b0d2f0e6f" style="width: 150px; height: 300px;" alt="Bild 4">
-  <img src="https://github.com/user-attachments/assets/33228f24-5aea-47c7-a442-6c6077211818" style="width: 150px; height: 300px;" alt="Bild 5">
+  <img src="https://github.com/user-attachments/assets/337e3063-253a-42f2-9055-6e8fe43f3aab" style="width: 150px; height: 300px;" alt="Bild 5">
+
 </div>
 
 
-## Modern Light Theme – German Edition
+## Modern Dark Theme – English Edition
 
 <div style="display: flex; justify-content: space-between; flex-wrap: nowrap;">
-  <img src="https://github.com/user-attachments/assets/c16f475d-4415-40a3-8373-ccb3dabd6b36" style="width: 150px; height: 300px;" alt="Bild 1">
-  <img src="https://github.com/user-attachments/assets/27d43252-1e98-450c-a2ed-f9c3d989bd5f" style="width: 150px; height: 300px;" alt="Bild 2">
-  <img src="https://github.com/user-attachments/assets/e634c271-eeb7-4380-98df-c3990d08abc6" style="width: 150px; height: 300px;" alt="Bild 3">
-  <img src="https://github.com/user-attachments/assets/aace9f54-8dae-4683-af8a-cdf11d2f4911" style="width: 150px; height: 300px;" alt="Bild 4">
+  <img src="https://github.com/user-attachments/assets/fc8bf12e-5112-4bf7-b0be-9eab951b75d5" style="width: 150px; height: 300px;" alt="Bild 1">
+  <img src="https://github.com/user-attachments/assets/5d2d93da-8d14-4256-bf17-c904bc0ea4e8" style="width: 150px; height: 300px;" alt="Bild 2">
+  <img src="https://github.com/user-attachments/assets/5fcc001f-67f2-4201-b8b2-def7800fd27c" style="width: 150px; height: 300px;" alt="Bild 3">
+  <img src="https://github.com/user-attachments/assets/8454e208-52e1-41f5-ab33-d04cc3b923f9" style="width: 150px; height: 300px;" alt="Bild 4">
+  <img src="https://github.com/user-attachments/assets/6bb9ce30-5fa5-4318-8dd4-2a836a7130f4" style="width: 150px; height: 300px;" alt="Bild 5">
 </div>
+
 
 
 
