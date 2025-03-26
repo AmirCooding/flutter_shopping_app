@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
-import 'package:ustore/common/utils/widgets/no_internent.dart';
+import 'package:ustore/utils/widgets/no_internent.dart';
 
 class ConnectivityWrapper extends StatelessWidget {
   final Widget child;

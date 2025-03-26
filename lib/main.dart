@@ -2,12 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/common/constant/language_manager.dart';
-import 'package:ustore/common/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
-import 'package:ustore/common/utils/widgets/loading_screen.dart';
-import 'package:ustore/common/utils/widgets/main_wrapper.dart';
-import 'package:ustore/common/utils/widgets/no_internent.dart';
-import 'package:ustore/data/remote/firbase_service/firbase_firestore/intro_firebase_service.dart';
+import 'package:ustore/utils/language_manager.dart';
+import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
+import 'package:ustore/utils/widgets/loading_screen.dart';
+import 'package:ustore/utils/widgets/main_wrapper.dart';
+import 'package:ustore/utils/widgets/no_internent.dart';
+import 'package:ustore/utils/widgets/product_cart_screen.dart';
+import 'package:ustore/data/models/product.dart';
 import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/intro/intro_cubit.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
@@ -57,7 +58,8 @@ class MyApp extends StatelessWidget {
         Locale('de', 'DE'),
       ],
       // Routes
-      initialRoute: SplashScreen.splash,
+      //initialRoute: SplashScreen.splash,
+      initialRoute: ProductCartScreen.productCart,
       routes: {
         SplashScreen.splash: (context) => const SplashScreen(),
         HomeScreen.home: (context) => const HomeScreen(),
@@ -65,6 +67,9 @@ class MyApp extends StatelessWidget {
         LoadingScreen.loading: (context) => const LoadingScreen(),
         IntroMainWrapper.introMainWrapper: (context) => IntroMainWrapper(),
         MainWrapper.mainWrapper: (context) => MainWrapper(),
+        ProductCartScreen.productCart: (context) => ProductCartScreen(
+              product: Product.getSampleProduct(),
+            ),
       },
       debugShowCheckedModeBanner: false,
       title: 'UStore',

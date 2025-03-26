@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/common/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
-import 'package:ustore/common/utils/widgets/bottom_nav.dart';
+import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
+import 'package:ustore/utils/widgets/bottom_nav.dart';
 import 'package:ustore/featuers/category/presentation/screens/categroy_screen.dart';
 import 'package:ustore/featuers/favorite/presentation/screens/favorite_screen.dart';
 import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';

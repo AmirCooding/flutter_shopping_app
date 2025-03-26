@@ -1,4 +1,4 @@
-import 'package:ustore/common/utils/models/intro_page.dart';
+import 'package:ustore/utils/models/intro_page.dart';
 
 abstract class IntroDataRepository {
   Future<bool> checkConnectivity();

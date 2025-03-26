@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ustore/common/utils/models/intro_localization.dart';
+import 'package:ustore/utils/models/intro_localization.dart';
 
 class IntroPage extends Equatable {
   final String image;

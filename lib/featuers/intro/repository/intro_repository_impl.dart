@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:ustore/common/utils/models/intro_localization.dart';
-import 'package:ustore/common/utils/models/intro_page.dart';
+import 'package:ustore/utils/models/intro_localization.dart';
+import 'package:ustore/utils/models/intro_page.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_firestore/intro_firebase_service.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_storage/storage_service.dart';
 import 'package:ustore/featuers/intro/repository/intro_data_repository.dart';

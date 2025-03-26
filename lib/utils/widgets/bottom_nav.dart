@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/common/constant/language_manager.dart';
-import 'package:ustore/common/constant/theme_helper.dart';
-import 'package:ustore/common/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
+import 'package:ustore/utils/language_manager.dart';
+import 'package:ustore/utils/theme_helper.dart';
+import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 
 class BottomNav extends StatelessWidget {

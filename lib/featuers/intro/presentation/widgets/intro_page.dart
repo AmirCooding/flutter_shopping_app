@@ -1,7 +1,7 @@
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:ustore/common/constant/theme_helper.dart';
+import 'package:ustore/utils/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/config/theme/app_font.dart';
 

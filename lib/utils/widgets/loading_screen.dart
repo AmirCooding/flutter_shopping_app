@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:ustore/common/constant/language_manager.dart';
-import 'package:ustore/common/constant/theme_helper.dart';
+import 'package:ustore/utils/language_manager.dart';
+import 'package:ustore/utils/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/config/theme/app_font.dart';
 

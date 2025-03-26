@@ -47,4 +47,16 @@ class Product extends Equatable {
   @override
   List<Object?> get props =>
       [id, title, price, description, category, image, rating];
+
+  static Product getSampleProduct() {
+    return Product(
+      id: 1,
+      title: 'Sample Product',
+      price: 19.99,
+      description: 'This is a description of the sample product.',
+      category: 'Electronics',
+      image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      rating: Rating(rate: 4.5, count: 200),
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ustore/common/constant/language_manager.dart';
+import 'package:ustore/utils/language_manager.dart';
 
-import 'package:ustore/common/utils/models/intro_page.dart';
+import 'package:ustore/utils/models/intro_page.dart';
 import 'package:ustore/featuers/intro/repository/intro_data_repository.dart';
 import 'package:ustore/gen/assets.gen.dart';
 

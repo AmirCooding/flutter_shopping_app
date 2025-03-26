@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ustore/common/utils/models/intro_page.dart';
+import 'package:ustore/utils/models/intro_page.dart';
 import 'package:ustore/data/remote/api/store_api_service.dart';
 
 class IntroFirbaseService {

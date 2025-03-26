@@ -1,15 +1,14 @@
 import 'package:dio/dio.dart';
-import 'package:ustore/common/constant/error_handling.dart';
+import 'package:ustore/config/constants.dart';
+import 'package:ustore/utils/error_handling.dart';
 import 'package:ustore/data/models/product.dart';
 import 'package:ustore/locator.dart';
 
 class StoreApiService {
-  final productsUrl = "https://fakestoreapi.com";
   late Dio dio;
   StoreApiService() {
     dio = locator<Dio>();
   }
-
   Future<List<Product>> getProducts() async {
     final response = await dio.get("$productsUrl/products");
     if (response.statusCode == 200) {
