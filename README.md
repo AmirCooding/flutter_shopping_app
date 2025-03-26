@@ -26,24 +26,36 @@ This project is a comprehensive online shopping application designed to provide 
 - **Navigation**: Persistent Bottom Navbar
 - **Network Requests**: Dio
 - **Database**: Firebase Firestore
+- **API**: [Firebase Firestore](https://fakestoreapi.com/)
 - **Debugging & Logging**: Logger
 - **Data Synchronization**: Synchronize
 - **UI Enhancements**:
   - Flutter Sliders
   - Flutter HTML (for rendering HTML content)
 - **External Services**:
-  - URL Launcher (for opening URLs)
-  - UniLinks (for deep linking)
   - Google Maps Flutter (for map integration)
 - **Utilities**:
   - Android SMS Retriever (for auto-filling OTPs)
   - Image Picker (for image selection)
   - Shamsi Date (for Persian calendar support)
   - Currency Text Input Formatter (for formatted currency inputs)
-  - Location (for accessing device location)
-  - Bytes (for byte data manipulation)
-  - Change App Package Name (for renaming the package)
 
+## Modern Light Theme – German Edition
+<div style="display: flex; gap: 10px;">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.54.36.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.55.53.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.56.05.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.56.18.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.55.09.png" width="100">
+</div>
+## Modern Dark Theme – English Edition
+<div style="display: flex; gap: 10px;">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.39.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.46.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.57.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.50.08.png" width="100">
+    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.52.02.png" width="100">
+</div>
 ## Objective
 
 The main goal of this project is to combine practical application development with a deep dive into Flutter’s capabilities, ultimately creating a robust and user-friendly shopping experience.
