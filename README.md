@@ -41,19 +41,22 @@ This project is a comprehensive online shopping application designed to provide 
   - Currency Text Input Formatter (for formatted currency inputs)
 
 ## Modern Light Theme – German Edition
-![Simulator Screenshot - iPhone 15 - 2025-03-26 at 07 55 09](https://github.com/user-attachments/assets/17042c71-1a04-4a0a-aaa7-6d9ab1e40f80)
-![Simulator Screenshot - iPhone 15 - 2025-03-26 at 07 56 18](https://github.com/user-attachments/assets/d7407c43-0075-4bee-813e-1b920302d2bb)
-![Simulator Screenshot - iPhone 15 - 2025-03-26 at 07 56 05](https://github.com/user-attachments/assets/3f397aad-8322-4aa4-b211-aa98857b06a9)
-![Simulator Screenshot - iPhone 15 - 2025-03-26 at 07 55 53](https://github.com/user-attachments/assets/70af4b73-9f87-4481-a26e-562e034be958)
-![Simulator Screenshot - iPhone 15 - 2025-03-26 at 07 54 36](https://github.com/user-attachments/assets/c6011ac4-537b-4b2f-a6d3-e024ada4000a)
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/user-attachments/assets/17042c71-1a04-4a0a-aaa7-6d9ab1e40f80" width="300" height="600" alt="Bild 1">
+  <img src="https://github.com/user-attachments/assets/d7407c43-0075-4bee-813e-1b920302d2bb" width="300" height="600" alt="Bild 2">
+  <img src="https://github.com/user-attachments/assets/3f397aad-8322-4aa4-b211-aa98857b06a9" width="300" height="600" alt="Bild 3">
+  <img src="https://github.com/user-attachments/assets/70af4b73-9f87-4481-a26e-562e034be958" width="300" height="600" alt="Bild 4">
+
+
 
 ## Modern Dark Theme – English Edition
+<div style="display: flex; justify-content: space-between;">
 ![Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07 52 02](https://github.com/user-attachments/assets/c16f475d-4415-40a3-8373-ccb3dabd6b36)
 ![Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07 50 08](https://github.com/user-attachments/assets/27d43252-1e98-450c-a2ed-f9c3d989bd5f)
 ![Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07 49 57](https://github.com/user-attachments/assets/e634c271-eeb7-4380-98df-c3990d08abc6)
 ![Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07 49 46](https://github.com/user-attachments/assets/aace9f54-8dae-4683-af8a-cdf11d2f4911)
 ![Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07 49 39](https://github.com/user-attachments/assets/250e8015-429e-4d74-9e2a-51f9121ea6b5)
-dition
+</div>
 
 ## Objective
 
