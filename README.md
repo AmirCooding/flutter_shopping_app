@@ -48,6 +48,7 @@ This project is a comprehensive online shopping application designed to provide 
     <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.56.18.png" width="100">
     <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.55.09.png" width="100">
 </div>
+
 ## Modern Dark Theme – English Edition
 <div style="display: flex; gap: 10px;">
     <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.39.png" width="100">
