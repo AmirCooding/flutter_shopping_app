@@ -73,6 +73,8 @@ This project is a comprehensive online shopping application designed to provide 
 
 - **State Management**: Bloc & Cubit
 - **Dependency Injection**: GetIt
+- **pattern**: Repository Pattern
+- **Architecture**: Architecture is based on feature-based approach.
 - **Localization**: Intl
 - **Local Storage**: Shared Preferences
 - **Image Optimization**: Cached Network Image
