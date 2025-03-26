@@ -42,21 +42,22 @@ This project is a comprehensive online shopping application designed to provide 
 
 ## Modern Light Theme – German Edition
 <div style="display: flex; gap: 10px;">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.54.36.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.55.53.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.56.05.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.56.18.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 - 2025-03-26 at 07.55.09.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20-%202025-03-26%20at%2007.54.36.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20-%202025-03-26%20at%2007.55.53.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20-%202025-03-26%20at%2007.56.05.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20-%202025-03-26%20at%2007.56.18.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20-%202025-03-26%20at%2007.55.09.png" width="100">
 </div>
 
 ## Modern Dark Theme – English Edition
 <div style="display: flex; gap: 10px;">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.39.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.46.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.49.57.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.50.08.png" width="100">
-    <img src="gs://u-store-b9593.appspot.com/REDME/Simulator Screenshot - iPhone 15 Pro - 2025-03-26 at 07.52.02.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-03-26%20at%2007.49.39.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-03-26%20at%2007.49.46.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-03-26%20at%2007.49.57.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-03-26%20at%2007.50.08.png" width="100">
+    <img src="https://storage.googleapis.com/u-store-b9593.appspot.com/REDME/Simulator%20Screenshot%20-%20iPhone%2015%20Pro%20-%202025-03-26%20at%2007.52.02.png" width="100">
 </div>
+
 ## Objective
 
 The main goal of this project is to combine practical application development with a deep dive into Flutter’s capabilities, ultimately creating a robust and user-friendly shopping experience.
