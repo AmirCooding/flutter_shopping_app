@@ -14,7 +14,7 @@
 
 This project is a comprehensive online shopping application designed to provide users with a seamless shopping experience. Leveraging the power of Flutter, this app offers a variety of features to enhance user interaction and convenience.
 
-## Features
+
 
 
 ## Features
