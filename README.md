@@ -1,11 +1,11 @@
-
-<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; align-items: center;">
   <!-- Linke Seite mit Titel -->
   <h1>UStore</h1>
 
   <!-- Rechte Seite mit Logo -->
-  <img src="https://github.com/user-attachments/assets/cbd7f3e0-8f17-46c7-b8f6-a83cc76d4de9" style="width: 50px; height: 50px;" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/cbd7f3e0-8f17-46c7-b8f6-a83cc76d4de9" style="width: 50px; height: 50px; margin-left: 10px;" alt="Logo">
 </div>
+
 
 
 
