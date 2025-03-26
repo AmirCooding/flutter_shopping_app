@@ -16,17 +16,19 @@ This project is a comprehensive online shopping application designed to provide 
 
 ## Features
 
-
-- **Product Browsing**: Users can explore a wide range of products across various categories.
+- **Product Browsing**: Explore a wide range of products across various categories.
 - **Shopping Cart**: Add desired products to the shopping cart for a streamlined purchasing process.
 - **Secure Checkout**: Complete your purchase with a secure and easy-to-follow checkout process.
 - **User Authentication**: Secure login and registration with Firebase authentication.
 - **Wishlist**: Save favorite products for later purchases.
-- **Order Tracking**: Users can track their order status in real time.
+- **Order Tracking**: Track your order status in real-time.
 - **Push Notifications**: Stay updated with the latest deals and order updates.
-- **Search Functionality**: Find products easily with an advanced search and filter system.
+- **Search Functionality**: Easily find products with an advanced search and filter system.
 - **Multi-language Support**: Supports multiple languages using internationalization.
-- **And more... .
+- **Favorites**: Easily mark products as favorites for quick access later.
+- **Dark and Light Theme**: Toggle between dark and light modes to suit your preferences.
+- **And More**: Additional features and enhancements for an optimized shopping experience.
+
 
 ## Technologies Used
 
