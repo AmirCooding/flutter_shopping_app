@@ -1,4 +1,8 @@
 
+# UStore
+
+<img src="https://github.com/user-attachments/assets/0847b45b-af1a-42b5-a050-b009573160b1" style="width: 200px; height: 100px;" alt="Group 9">
+
 
 ## Overview
 
@@ -57,11 +61,11 @@ This project is a comprehensive online shopping application designed to provide 
 ## Modern Dark Theme – English Edition
 
 <div style="display: flex; justify-content: space-between; flex-wrap: nowrap;">
-  <img src="https://github.com/user-attachments/assets/fc8bf12e-5112-4bf7-b0be-9eab951b75d5" style="width: 150px; height: 300px;" alt="Bild 1">
+   <img src="https://github.com/user-attachments/assets/6bb9ce30-5fa5-4318-8dd4-2a836a7130f4" style="width: 150px; height: 300px;" alt="Bild 1">
   <img src="https://github.com/user-attachments/assets/5d2d93da-8d14-4256-bf17-c904bc0ea4e8" style="width: 150px; height: 300px;" alt="Bild 2">
   <img src="https://github.com/user-attachments/assets/5fcc001f-67f2-4201-b8b2-def7800fd27c" style="width: 150px; height: 300px;" alt="Bild 3">
   <img src="https://github.com/user-attachments/assets/8454e208-52e1-41f5-ab33-d04cc3b923f9" style="width: 150px; height: 300px;" alt="Bild 4">
-  <img src="https://github.com/user-attachments/assets/6bb9ce30-5fa5-4318-8dd4-2a836a7130f4" style="width: 150px; height: 300px;" alt="Bild 5">
+   <img src="https://github.com/user-attachments/assets/fc8bf12e-5112-4bf7-b0be-9eab951b75d5" style="width: 150px; height: 300px;" alt="Bild 5">
 </div>
 
 
