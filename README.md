@@ -1,7 +1,13 @@
 
-# UStore
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <!-- Linke Seite mit Titel -->
+  <h1>UStore</h1>
 
-<img src="https://github.com/user-attachments/assets/0847b45b-af1a-42b5-a050-b009573160b1" style="width: 250px; height: 100px;" alt="Group 9">
+  <!-- Rechte Seite mit Logo -->
+  <img src="https://github.com/user-attachments/assets/cbd7f3e0-8f17-46c7-b8f6-a83cc76d4de9" style="width: 50px; height: 50px;" alt="Logo">
+</div>
+
+
 
 
 ## Overview
@@ -9,6 +15,7 @@
 This project is a comprehensive online shopping application designed to provide users with a seamless shopping experience. Leveraging the power of Flutter, this app offers a variety of features to enhance user interaction and convenience.
 
 ## Features
+
 
 - **Product Browsing**: Users can explore a wide range of products across various categories.
 - **Shopping Cart**: Add desired products to the shopping cart for a streamlined purchasing process.
