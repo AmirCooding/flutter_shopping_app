@@ -1,7 +1,7 @@
 
 # UStore
 
-<img src="https://github.com/user-attachments/assets/0847b45b-af1a-42b5-a050-b009573160b1" style="width: 250px; height: 1500px;" alt="Group 9">
+<img src="https://github.com/user-attachments/assets/0847b45b-af1a-42b5-a050-b009573160b1" style="width: 250px; height: 150px;" alt="Group 9">
 
 
 ## Overview
