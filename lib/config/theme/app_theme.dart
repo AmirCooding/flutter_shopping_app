@@ -31,6 +31,13 @@ class AppTheme {
       backgroundColor: AppColors.primary,
       titleTextStyle: AppFont.lightHeading.copyWith(color: Colors.white),
     ),
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: AppColors.accentLight,
+    ),
+    dividerTheme: const DividerThemeData(
+      color: AppColors.greyLight,
+      thickness: 1,
+    ),
   );
 
   // Dark Theme
@@ -60,6 +67,13 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.primaryDark,
       titleTextStyle: AppFont.darkHeading.copyWith(color: Colors.white),
+    ),
+    drawerTheme: DrawerThemeData(
+      backgroundColor: AppColors.accentDark,
+    ),
+    dividerTheme: const DividerThemeData(
+      color: AppColors.greyDark,
+      thickness: 1,
     ),
   );
 }

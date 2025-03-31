@@ -9,7 +9,7 @@ class AppColors {
   // **Secondary Colors (Complementary Colors)**
   // Warm orange for contrast
   static const Color secondary = Color(0xFFFFA726);
-  // Bright golden yellow
+  // Bright11 golden yellow
   static const Color secondaryLight = Color(0xFFFFD95B);
   // Deep orange
   static const Color secondaryDark = Color(0xFFFB8C00);

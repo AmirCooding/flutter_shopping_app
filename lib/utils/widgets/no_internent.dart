@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/utils/theme_helper.dart';
+import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/config/theme/app_font.dart';

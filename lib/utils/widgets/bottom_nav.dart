@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/utils/language_manager.dart';
-import 'package:ustore/utils/theme_helper.dart';
+import 'package:ustore/common/language_manager.dart';
+import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 

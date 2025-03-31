@@ -12,32 +12,33 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/baner1.png
+  AssetGenImage get baner1 => const AssetGenImage('assets/images/baner1.png');
+
+  /// File path: assets/images/baner2.png
+  AssetGenImage get baner2 => const AssetGenImage('assets/images/baner2.png');
+
+  /// File path: assets/images/baner3.png
+  AssetGenImage get baner3 => const AssetGenImage('assets/images/baner3.png');
+
+  /// File path: assets/images/blankProfile.svg
+  String get blankProfile => 'assets/images/blankProfile.svg';
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
-  /// File path: assets/images/onboarding1.png
-  AssetGenImage get onboarding1 =>
-      const AssetGenImage('assets/images/onboarding1.png');
-
-  /// File path: assets/images/onboarding2.png
-  AssetGenImage get onboarding2 =>
-      const AssetGenImage('assets/images/onboarding2.png');
-
-  /// File path: assets/images/onboarding3.png
-  AssetGenImage get onboarding3 =>
-      const AssetGenImage('assets/images/onboarding3.png');
-
-  /// File path: assets/images/text_logo_ustore.png
-  AssetGenImage get textLogoUstore =>
-      const AssetGenImage('assets/images/text_logo_ustore.png');
+  /// File path: assets/images/ustore_text_logo.png
+  AssetGenImage get ustoreTextLogo =>
+      const AssetGenImage('assets/images/ustore_text_logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
+    baner1,
+    baner2,
+    baner3,
+    blankProfile,
     logo,
-    onboarding1,
-    onboarding2,
-    onboarding3,
-    textLogoUstore,
+    ustoreTextLogo,
   ];
 }
 

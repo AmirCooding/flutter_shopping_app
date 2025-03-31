@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:ustore/utils/display_dimensions.dart';
-import 'package:ustore/utils/theme_helper.dart';
+import 'package:ustore/common/custom_indecator.dart';
+import 'package:ustore/common/display_dimensions.dart';
+import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/utils/widgets/prefs_operator.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/featuers/home/presentation/screens/home_screen.dart';
@@ -102,20 +103,9 @@ class _IntroMainWrapperState extends State<IntroMainWrapper> {
                   bottom: height * 0.35,
                   left: 0,
                   right: 0,
-                  child: Center(
-                    child: SmoothPageIndicator(
-                      controller: pageController,
-                      count: state.introPage.length,
-                      effect: ExpandingDotsEffect(
-                        dotColor: Colors.grey,
-                        activeDotColor: isDarkMode
-                            ? AppColors.accentDark
-                            : AppColors.accentLight,
-                        dotHeight: 10,
-                        dotWidth: 10,
-                      ),
-                    ),
-                  ),
+                  child: CustomIndicator(
+                      pageController: pageController,
+                      pageViewLength: state.introPage.length),
                 ),
 
                 // PageView (Intro-Seiten)

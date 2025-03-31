@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:ustore/common/data_state.dart';
 import 'package:ustore/config/constants.dart';
-import 'package:ustore/utils/error_handling.dart';
+import 'package:ustore/common/error_handling.dart';
 import 'package:ustore/data/models/product.dart';
 import 'package:ustore/locator.dart';
 

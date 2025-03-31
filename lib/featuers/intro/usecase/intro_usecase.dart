@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ustore/utils/language_manager.dart';
+import 'package:ustore/common/language_manager.dart';
 
 import 'package:ustore/utils/models/intro_page.dart';
 import 'package:ustore/featuers/intro/repository/intro_data_repository.dart';

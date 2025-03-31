@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/data/models/product.dart';
-import 'package:ustore/utils/theme_helper.dart';
+import 'package:ustore/common/theme_helper.dart';
 
 class ProductCartScreen extends StatelessWidget {
   static const productCart = '/product-cart-screen';

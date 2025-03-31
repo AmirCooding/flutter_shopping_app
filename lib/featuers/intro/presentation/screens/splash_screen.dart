@@ -3,7 +3,8 @@ import 'dart:developer';
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/utils/theme_helper.dart';
+import 'package:ustore/common/theme_helper.dart';
+import 'package:ustore/gen/assets.gen.dart';
 import 'package:ustore/utils/widgets/prefs_operator.dart';
 import 'package:ustore/utils/widgets/main_wrapper.dart';
 import 'package:ustore/utils/widgets/no_internent.dart';
@@ -66,8 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
             delayDuration: const Duration(milliseconds: 500),
             animationDuration: const Duration(milliseconds: 3000),
             animation: DelayedAnimations.SLIDE_FROM_LEFT,
-            child: Image.asset('assets/images/text_logo_ustore.png',
-                width: width * 0.8),
+            child: Assets.images.ustoreTextLogo.image(width: width * 0.8),
           ),
         ),
       ),
