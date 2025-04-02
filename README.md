@@ -1,4 +1,4 @@
-![Simulator Screenshot - iPhone 15 - 2025-04-02 at 10 00 06](https://github.com/user-attachments/assets/e72bf96d-644b-429e-b254-dd49cb42318b)<div style="display: flex; align-items: center;">
+
   <!-- Linke Seite mit Titel -->
   <h1>UStore</h1>
 
