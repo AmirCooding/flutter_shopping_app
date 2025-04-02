@@ -104,8 +104,8 @@ This project is a comprehensive online shopping application designed to provide 
   <img src="https://github.com/user-attachments/assets/7aad5519-44f4-49b8-b60d-095b0d2f0e6f" style="width: 150px; height: 300px;" alt="Bild 2">
   <img src="https://github.com/user-attachments/assets/b92ea2c4-e2ab-4567-ba97-626a1b18cdd4" style="width: 150px; height: 300px;" alt="Bild 3">
   <img src="https://github.com/user-attachments/assets/92b9c503-8ab3-4f3b-a3f5-a4c5918d0d1c" style="width: 150px; height: 300px;" alt="Bild 4">
-  <img src="https://github.com/user-attachments/assets/337e3063-253a-42f2-9055-6e8fe43f3aab" style="width: 150px; height: 300px;" alt="Bild 5">
-
+  <img src="https://github.com/user-attachments/assets/0e19b6d8-2ee9-4e06-964b-e83e2864c324" style="width: 150px; height: 300px;" alt="Bild 5">
+  <img src="https://github.com/user-attachments/assets/4bfe5dfc-ded2-4919-908e-670f780fa423" style="width: 150px; height: 300px;" alt="Bild 6">
 </div>
 
 
@@ -116,7 +116,8 @@ This project is a comprehensive online shopping application designed to provide 
    <img src="https://github.com/user-attachments/assets/8454e208-52e1-41f5-ab33-d04cc3b923f9" style="width: 150px; height: 300px;" alt="Bild 2">
    <img src="https://github.com/user-attachments/assets/5fcc001f-67f2-4201-b8b2-def7800fd27c" style="width: 150px; height: 300px;" alt="Bild 3">
    <img src="https://github.com/user-attachments/assets/5d2d93da-8d14-4256-bf17-c904bc0ea4e8" style="width: 150px; height: 300px;" alt="Bild 4">
-   <img src="https://github.com/user-attachments/assets/fc8bf12e-5112-4bf7-b0be-9eab951b75d5" style="width: 150px; height: 300px;" alt="Bild 5">
+   <img src="https://github.com/user-attachments/assets/1ae37665-5363-4f83-9324-4c3094cf19b6" style="width: 150px; height: 300px;" alt="Bild 5">
+   <img src="https://github.com/user-attachments/assets/1ae37665-5363-4f83-9324-4c3094cf19b6" style="width: 150px; height: 300px;" alt="Bild 6">
 </div>
 
 
