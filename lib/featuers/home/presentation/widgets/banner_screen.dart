@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/custom_indecator.dart';
 import 'package:ustore/common/display_dimensions.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
+import 'package:ustore/featuers/home/presentation/bloc/home_data_status.dart';
 import 'package:ustore/gen/assets.gen.dart';
+import 'package:ustore/utils/widgets/loading_screen.dart';
 
 class BannerScreen extends StatelessWidget {
   const BannerScreen({
@@ -25,6 +27,9 @@ class BannerScreen extends StatelessWidget {
           width: screenWidth(context) * 0.9,
           child: BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
+              if (state.dataStatus is HomeDataLoading) {
+                return LoadingScreen();
+              }
               return PageView.builder(
                 itemCount: baners.length,
                 controller: pageController,

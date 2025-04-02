@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/language_manager.dart';
+import 'package:ustore/data/remote/firbase_service/firbase_firestore/fire_store_service.dart';
+import 'package:ustore/featuers/details/screen/details_screen.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
 import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
 import 'package:ustore/utils/widgets/loading_screen.dart';
@@ -27,7 +31,11 @@ void main() async {
   );
   await LanguageManager().loadLanguage();
   setupLocator();
-
+  FireSotreService fireSotreService =
+      FireSotreService(firestore: FirebaseFirestore.instance);
+  fireSotreService.getProductsInDe().then((value) {
+    log("Products of Germany ${value.length.toString()}");
+  });
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider<SplashCubit>(
@@ -60,11 +68,12 @@ class MyApp extends StatelessWidget {
         Locale('de', 'DE'),
       ],
       // Routes
-      initialRoute: SplashScreen.splash,
+      initialRoute: MainWrapper.mainWrapper,
       //initialRoute: HomeScreen.home,
 
       routes: {
         SplashScreen.splash: (context) => const SplashScreen(),
+        ProductDetailsScreen.detailsScreen: (context) => ProductDetailsScreen(),
         HomeScreen.home: (context) => HomeScreen(),
         NoInternet.nointernet: (context) => const NoInternet(),
         LoadingScreen.loading: (context) => const LoadingScreen(),

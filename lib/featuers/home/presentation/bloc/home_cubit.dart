@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_data_status.dart';
@@ -11,8 +13,20 @@ class HomeCubit extends Cubit<HomeState> {
 
   HomeCubit(this.homeUsecase) : super(HomeState(dataStatus: HomeDataLoading()));
 
+  void fetchAPopularProducts(String locale) {
+    // emit(state.copyWith(newDataStatus: HomeDataLoading()));
+    homeUsecase.fetchProducts(locale).then((products) {
+      emit(state.copyWith(
+        newDataStatus: HomeDataLoaded(data: products),
+      ));
+      log("message: Produkte geladen: ${products.length}");
+    }).catchError((e) {
+      emit(state.copyWith(newDataStatus: HomeDataError(message: e.toString())));
+    });
+  }
+
   void callBanerImages() {
-    emit(state.copyWith(newDataStatus: HomeDataLoading()));
+    //emit(state.copyWith(newDataStatus: HomeDataLoading()));
     homeUsecase.fetchBanerImages().then((banners) {
       emit(state.copyWith(
         newDataStatus: HomeDataBanerImagesLoaded(),
@@ -23,6 +37,12 @@ class HomeCubit extends Cubit<HomeState> {
     }).catchError((e) {
       emit(state.copyWith(newDataStatus: HomeDataError(message: e.toString())));
     });
+  }
+
+  void fetchHomeScreenData(String locale) {
+    emit(state.copyWith(newDataStatus: HomeDataLoading()));
+    callBanerImages();
+    fetchAPopularProducts(locale);
   }
 
   void startBannerAutoSlide(int length) {

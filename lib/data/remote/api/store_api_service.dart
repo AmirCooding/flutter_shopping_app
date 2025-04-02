@@ -28,7 +28,7 @@ class StoreApiService {
     }
   }
 
-  Future<Product> getProductById(int id) async {
+  Future<Product> getProductById(String id) async {
     try {
       final response = await dio.get("$productsUrl/products/$id");
       return response.statusCode == 200

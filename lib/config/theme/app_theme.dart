@@ -28,8 +28,8 @@ class AppTheme {
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.primary,
-      titleTextStyle: AppFont.lightHeading.copyWith(color: Colors.white),
+      backgroundColor: Colors.transparent,
+      titleTextStyle: AppFont.lightHeading,
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: AppColors.accentLight,
@@ -65,9 +65,8 @@ class AppTheme {
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.primaryDark,
-      titleTextStyle: AppFont.darkHeading.copyWith(color: Colors.white),
-    ),
+        backgroundColor: Colors.transparent,
+        titleTextStyle: AppFont.darkHeading),
     drawerTheme: DrawerThemeData(
       backgroundColor: AppColors.accentDark,
     ),

@@ -54,10 +54,14 @@ class _SplashScreenState extends State<SplashScreen> {
               if (value) {
                 log('Intro is shown --------> $value');
                 Navigator.pushReplacementNamed(
-                    context, MainWrapper.mainWrapper);
+                    // ignore: use_build_context_synchronously
+                    context,
+                    MainWrapper.mainWrapper);
               } else {
                 Navigator.pushReplacementNamed(
-                    context, IntroMainWrapper.introMainWrapper);
+                    // ignore: use_build_context_synchronously
+                    context,
+                    IntroMainWrapper.introMainWrapper);
               }
             });
           }

@@ -7,8 +7,8 @@ class AppFont {
   // **Light Theme Text Styles**
   static TextStyle lightHeading = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 24,
-    fontWeight: FontWeight.bold, // 700
+    fontSize: 20,
+    fontWeight: FontWeight.w400, // 700
     color: AppColors.greyDark,
   );
 
@@ -16,7 +16,7 @@ class AppFont {
     fontFamily: fontFamily,
     fontSize: 18,
     fontWeight: FontWeight.w600, // 600
-    color: AppColors.textPrimary,
+    color: AppColors.greyDark,
   );
 
   static const TextStyle lightBody = TextStyle(
@@ -36,7 +36,7 @@ class AppFont {
   // **Dark Theme Text Styles**
   static const TextStyle darkHeading = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: FontWeight.bold, // 700
     color: AppColors.greyLight,
   );
