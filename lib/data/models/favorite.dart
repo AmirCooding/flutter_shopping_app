@@ -12,6 +12,22 @@ class Favorite extends Equatable {
     return Favorite(
         id: json['id'], productId: json['productId'], userId: json['userId']);
   }
+
+  Favorite copyWith({String? id, int? productId, String? userId}) {
+    return Favorite(
+        id: id ?? this.id,
+        productId: productId ?? this.productId,
+        userId: userId ?? this.userId);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'productId': productId,
+      'userId': userId,
+    };
+  }
+
   @override
   List<Object?> get props => [id, productId, userId];
 }
