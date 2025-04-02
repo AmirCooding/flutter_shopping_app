@@ -1,4 +1,4 @@
-<div style="display: flex; align-items: center;">
+![Simulator Screenshot - iPhone 15 - 2025-04-02 at 10 00 06](https://github.com/user-attachments/assets/e72bf96d-644b-429e-b254-dd49cb42318b)<div style="display: flex; align-items: center;">
   <!-- Linke Seite mit Titel -->
   <h1>UStore</h1>
 
@@ -117,7 +117,7 @@ This project is a comprehensive online shopping application designed to provide 
    <img src="https://github.com/user-attachments/assets/5fcc001f-67f2-4201-b8b2-def7800fd27c" style="width: 150px; height: 300px;" alt="Bild 3">
    <img src="https://github.com/user-attachments/assets/5d2d93da-8d14-4256-bf17-c904bc0ea4e8" style="width: 150px; height: 300px;" alt="Bild 4">
    <img src="https://github.com/user-attachments/assets/1ae37665-5363-4f83-9324-4c3094cf19b6" style="width: 150px; height: 300px;" alt="Bild 5">
-   <img src="https://github.com/user-attachments/assets/1ae37665-5363-4f83-9324-4c3094cf19b6" style="width: 150px; height: 300px;" alt="Bild 6">
+   <img src="https://github.com/user-attachments/assets/77dbd9e1-2881-45d3-a3ae-629d05e56295" style="width: 150px; height: 300px;" alt="Bild 6">
 </div>
 
 
