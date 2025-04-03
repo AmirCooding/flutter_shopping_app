@@ -3,10 +3,10 @@ import 'package:ustore/common/error_handling.dart';
 import 'package:ustore/data/models/app_user.dart';
 import 'package:uuid/uuid.dart';
 
-class AppUserAuth {
+class FirebaseAuthenticationService {
   final FirebaseAuth firebaseAuth;
-  final Uuid uuid = const Uuid();
-  AppUserAuth({required this.firebaseAuth});
+  late String? userId = " ";
+  FirebaseAuthenticationService({required this.firebaseAuth});
 
   // Sign up with email and password, generating a custom UID
   Future<AppUser> signUpWithEmailAndPassword(
@@ -14,7 +14,12 @@ class AppUserAuth {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
-      String customUid = uuid.v4();
+      String customUid = Uuid().v4();
+      setUserId(customUid);
+      User? currentUser = firebaseAuth.currentUser;
+      if (currentUser != null) {
+        await currentUser.updateDisplayName(customUid);
+      }
       AppUser user = AppUser(
         uid: customUid,
         email: email,
@@ -24,6 +29,14 @@ class AppUserAuth {
     } on FirebaseAuthException catch (e) {
       throw (ErrorHandling.handleAuthException(e));
     }
+  }
+
+  setUserId(String uid) {
+    userId = uid;
+  }
+
+  String getUserId() {
+    return userId!;
   }
 
   //Signin with Email and paasword
@@ -51,12 +64,33 @@ class AppUserAuth {
     }
 
     // recovery password
-    Future<void> recoveryPassword(String newPassword) async {
+    Future<void> resetPassword(String email) async {
       try {
-        await firebaseAuth.currentUser!.updatePassword(newPassword);
+        await firebaseAuth.sendPasswordResetEmail(email: email);
       } on FirebaseAuthException catch (e) {
-        throw Exception(ErrorHandling.handleAuthException(e));
+        throw (ErrorHandling.handleAuthException(e));
       }
+    }
+  }
+
+// reset password
+  Future<void> resetPassword(String email) async {
+    try {
+      await firebaseAuth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw (ErrorHandling.handleAuthException(e));
+    }
+  }
+
+  // update password
+  Future<void> updatePassword(String password) async {
+    try {
+      User? user = firebaseAuth.currentUser;
+      if (user != null) {
+        await user.updatePassword(password);
+      }
+    } on FirebaseAuthException catch (e) {
+      throw (ErrorHandling.handleAuthException(e));
     }
   }
 }

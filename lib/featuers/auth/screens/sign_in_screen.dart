@@ -53,7 +53,9 @@ class SignInScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/recovery-password-screen');
+                  },
                   child: Text(
                     locale == 'de' ? "Passwort vergessen?" : "Forgot Password?",
                     style: TextStyle(
@@ -88,7 +90,9 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign-up-screen');
+                  },
                   child: Text(
                     locale == 'de' ? "Registerieren Sie sich" : "Sign up",
                     style: TextStyle(
@@ -103,7 +107,7 @@ class SignInScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Divider(),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             CustomButton(
                 isImage: true,
                 iconImage: Assets.images.google.path,
@@ -114,7 +118,7 @@ class SignInScreen extends StatelessWidget {
                     isDarkMode ? AppColors.greyLight : AppColors.background,
                 backgroundColor: isDarkMode
                     ? AppColors.googleButton
-                    : AppColors.buttonSecondary,
+                    : AppColors.googleButton,
                 onPressed: () {})
           ],
         ),

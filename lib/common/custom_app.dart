@@ -5,11 +5,10 @@ import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/config/theme/app_font.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, required this.title, required this.icon});
+  final String? title;
+  final Icon? icon;
 
-  final String title;
-  final Icon icon;
-
+  const CustomAppBar({super.key, this.title, this.icon});
   @override
   Widget build(BuildContext context) {
     final isDarkMode = ThemeHelper.isDarkMode(context);
@@ -17,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: Icon(
           CupertinoIcons.back,
-          color: isDarkMode ? AppColors.textWhite : AppColors.textBlack,
+          color: isDarkMode ? AppColors.accentDark : AppColors.accentLight,
         ),
         onPressed: () {
           Navigator.pop(context);
@@ -26,13 +25,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Text(
-        title,
+        title ?? '',
         style: isDarkMode ? AppFont.darkHeading : AppFont.lightHeading,
       ),
       centerTitle: true,
       actions: [
         IconButton(
-          icon: icon,
+          icon: icon ?? SizedBox.shrink(),
           onPressed: () {},
         ),
       ],
@@ -40,6 +39,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(60);
 }

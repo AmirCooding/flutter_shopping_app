@@ -14,6 +14,7 @@ class PaypalPayment extends PaymentMethod {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'paypalEmail': paypalEmail,

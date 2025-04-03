@@ -5,8 +5,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/language_manager.dart';
-import 'package:ustore/data/remote/firbase_service/firbase_firestore/fire_store_service.dart';
+import 'package:ustore/data/remote/firbase_service/firbase_firestore/firestore_firebase_service.dart';
 import 'package:ustore/featuers/auth/screens/Sign_up_screen.dart';
+import 'package:ustore/featuers/auth/screens/recovery_password.dart';
 import 'package:ustore/featuers/auth/screens/sign_in_screen.dart';
 import 'package:ustore/featuers/details/screen/details_screen.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
@@ -33,11 +34,6 @@ void main() async {
   );
   await LanguageManager().loadLanguage();
   setupLocator();
-  FireSotreService fireSotreService =
-      FireSotreService(firestore: FirebaseFirestore.instance);
-  fireSotreService.getProductsInDe().then((value) {
-    log("Products of Germany ${value.length.toString()}");
-  });
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider<SplashCubit>(
@@ -72,7 +68,7 @@ class MyApp extends StatelessWidget {
       // Routes
       //initialRoute: MainWrapper.mainWrapper,
       //initialRoute: HomeScreen.home,
-      initialRoute: SignUpScreen.signUp,
+      initialRoute: SignInScreen.signIn,
 
       routes: {
         SplashScreen.splash: (context) => const SplashScreen(),
@@ -84,6 +80,7 @@ class MyApp extends StatelessWidget {
         MainWrapper.mainWrapper: (context) => MainWrapper(),
         SignInScreen.signIn: (context) => SignInScreen(),
         SignUpScreen.signUp: (context) => SignUpScreen(),
+        RecoveryPassword.recoveryPassword: (context) => RecoveryPassword(),
         ProductCartScreen.productCart: (context) => ProductCartScreen(
               product: Product.getSampleProduct(),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ustore/common/custom_app.dart';
 import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
@@ -24,9 +25,10 @@ class SignUpScreen extends StatelessWidget {
     final locale = LanguageManager().locale;
     final isDarkMode = ThemeHelper.isDarkMode(context);
     return Scaffold(
+      appBar: CustomAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 150, 20, 50),
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 50),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 20),
                 CustomTextField(
                     isOptional: true,
                     prefixIcon: CupertinoIcons.person,

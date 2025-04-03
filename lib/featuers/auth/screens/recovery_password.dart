@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ustore/common/custom_app.dart';
+import 'package:ustore/common/display_dimensions.dart';
 import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
@@ -17,19 +19,20 @@ class RecoveryPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     final locale = LanguageManager().locale;
     final isDarkMode = ThemeHelper.isDarkMode(context);
+    final height = screenHeight(context);
     return Scaffold(
+      appBar: CustomAppBar(
+        title: " ",
+      ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
+        padding: EdgeInsets.fromLTRB(20, height * 0.02, 20, 0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(child: Assets.images.ustoreTextLogo.image(width: 230)),
-              SizedBox(height: 40),
               Text(
                 locale == 'de' ? "Passwort zurücksetzen" : "Reset password",
-                style:
-                    isDarkMode ? AppFont.darkHeading2 : AppFont.lightHeading2,
+                style: isDarkMode ? AppFont.darkHeading : AppFont.lightHeading,
               ),
               CustomTextField(
                   prefixIcon: CupertinoIcons.mail,
@@ -38,7 +41,7 @@ class RecoveryPassword extends StatelessWidget {
                       ? "Geben Sie Ihre E-Mail..."
                       : "Enter your Email...",
                   title: "Email"),
-              SizedBox(height: 50),
+              SizedBox(height: 30),
               CustomButton(
                   text: locale == 'de' ? "Email Senden" : "Send Email",
                   textColor:
@@ -46,6 +49,7 @@ class RecoveryPassword extends StatelessWidget {
                   backgroundColor:
                       isDarkMode ? AppColors.accentDark : AppColors.accentLight,
                   onPressed: () {}),
+              Spacer()
             ]),
       ),
     );

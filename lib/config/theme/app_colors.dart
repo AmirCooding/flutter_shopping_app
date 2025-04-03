@@ -19,7 +19,7 @@ class AppColors {
   static const Color accent = Color(0xFF00ACC1);
   static const Color accentLight = Color(0xFF5CD1E5);
   static const Color accentDark = Color(0xFF007C91);
-  static const Color googleButton = Color(0xFF0E3493);
+  static const Color googleButton = Color.fromARGB(255, 62, 113, 244);
 
   // **Background Colors**
   // Light gray for background
