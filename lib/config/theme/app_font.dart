@@ -12,6 +12,20 @@ class AppFont {
     color: AppColors.greyDark,
   );
 
+  static TextStyle ligthTitle = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeight.w300,
+    color: AppColors.grey,
+  );
+
+  static TextStyle lightHeading2 = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 20,
+    fontWeight: FontWeight.w600, // 700
+    color: AppColors.greyDark,
+  );
+
   static const TextStyle lightSubheading = TextStyle(
     fontFamily: fontFamily,
     fontSize: 18,
@@ -32,6 +46,12 @@ class AppFont {
     fontWeight: FontWeight.w300, // 300
     color: AppColors.greyDark,
   );
+  static TextStyle darkTitle = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeight.w300,
+    color: AppColors.greyLight,
+  );
 
   // **Dark Theme Text Styles**
   static const TextStyle darkHeading = TextStyle(
@@ -39,6 +59,12 @@ class AppFont {
     fontSize: 20,
     fontWeight: FontWeight.bold, // 700
     color: AppColors.greyLight,
+  );
+  static const TextStyle darkHeading2 = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColors.grey,
   );
 
   static const TextStyle darkSubheading = TextStyle(

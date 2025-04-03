@@ -24,6 +24,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/blankProfile.svg
   String get blankProfile => 'assets/images/blankProfile.svg';
 
+  /// File path: assets/images/google.png
+  AssetGenImage get google => const AssetGenImage('assets/images/google.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -37,6 +40,7 @@ class $AssetsImagesGen {
     baner2,
     baner3,
     blankProfile,
+    google,
     logo,
     ustoreTextLogo,
   ];

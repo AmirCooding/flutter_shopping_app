@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ustore/gen/assets.gen.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -6,7 +7,9 @@ class CustomButton extends StatelessWidget {
   final Color iconColor;
   final Color backgroundColor;
   final VoidCallback onPressed;
-  final IconData? icon; // Optional icon
+  final IconData? icon;
+  final bool isImage;
+  final String? iconImage;
 
   const CustomButton({
     super.key,
@@ -16,6 +19,8 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.iconColor = Colors.white,
+    this.isImage = false,
+    this.iconImage, // Bildpfad als String
   });
 
   @override
@@ -26,13 +31,16 @@ class CustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
       ),
       onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (icon != null) ...[
+          if (isImage && iconImage != null) ...[
+            Image.asset(iconImage!, width: 24, height: 24),
+            const SizedBox(width: 10),
+          ] else if (icon != null) ...[
             Icon(icon, color: iconColor, size: 24),
             const SizedBox(width: 10),
           ],
@@ -40,8 +48,8 @@ class CustomButton extends StatelessWidget {
             text,
             style: TextStyle(
               color: textColor,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],

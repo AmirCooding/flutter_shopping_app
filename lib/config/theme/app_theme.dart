@@ -6,14 +6,12 @@ class AppTheme {
   // Light Theme
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.background,
     colorScheme: ColorScheme.light(
-      primary: AppColors.primary,
+      primary: AppColors.accent,
       secondary: AppColors.secondary,
       surface: AppColors.background,
       onPrimary: Colors.white,
-      onSecondary: Colors.black,
     ),
     textTheme: TextTheme(
       headlineLarge: AppFont.lightHeading,

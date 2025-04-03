@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_firestore/fire_store_service.dart';
+import 'package:ustore/featuers/auth/screens/sign_in_screen.dart';
 import 'package:ustore/featuers/details/screen/details_screen.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
 import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
@@ -68,8 +69,9 @@ class MyApp extends StatelessWidget {
         Locale('de', 'DE'),
       ],
       // Routes
-      initialRoute: MainWrapper.mainWrapper,
+      //initialRoute: MainWrapper.mainWrapper,
       //initialRoute: HomeScreen.home,
+      initialRoute: SignInScreen.signIn,
 
       routes: {
         SplashScreen.splash: (context) => const SplashScreen(),
@@ -79,6 +81,7 @@ class MyApp extends StatelessWidget {
         LoadingScreen.loading: (context) => const LoadingScreen(),
         IntroMainWrapper.introMainWrapper: (context) => IntroMainWrapper(),
         MainWrapper.mainWrapper: (context) => MainWrapper(),
+        SignInScreen.signIn: (context) => SignInScreen(),
         ProductCartScreen.productCart: (context) => ProductCartScreen(
               product: Product.getSampleProduct(),
             ),

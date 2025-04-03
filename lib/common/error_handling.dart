@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 class ErrorHandling {
   static const String NO_INTERNET_CONNECTION = "No internet connection";
   static const String TIMEOUT = "Timeout";
@@ -180,6 +182,25 @@ class ErrorHandling {
       default:
         throw Exception(
             "❓ Unexpected Error ($response): Please try again later!");
+    }
+  }
+
+  static Exception handleAuthException(FirebaseAuthException e) {
+    switch (e.code) {
+      case 'email-already-in-use':
+        return Exception("Diese E-Mail-Adresse ist bereits registriert.");
+      case 'user-not-found':
+        return Exception("Kein Benutzer mit dieser E-Mail gefunden.");
+      case 'wrong-password':
+        return Exception("Falsches Passwort.");
+      case 'weak-password':
+        return Exception("Das Passwort ist zu schwach.");
+      case 'invalid-email':
+        return Exception("Ungültige E-Mail-Adresse.");
+      case 'too-many-requests':
+        return Exception("Zu viele Anmeldeversuche. Bitte später versuchen.");
+      default:
+        return Exception("Unbekannter Fehler: ${e.message}");
     }
   }
 }
