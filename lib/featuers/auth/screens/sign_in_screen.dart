@@ -113,7 +113,7 @@ class SignInScreen extends StatelessWidget {
                 textColor:
                     isDarkMode ? AppColors.greyLight : AppColors.background,
                 backgroundColor: isDarkMode
-                    ? AppColors.buttonPrimary
+                    ? AppColors.googleButton
                     : AppColors.buttonSecondary,
                 onPressed: () {})
           ],

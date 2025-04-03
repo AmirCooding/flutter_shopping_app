@@ -25,6 +25,12 @@ class AppFont {
     fontWeight: FontWeight.w600, // 700
     color: AppColors.greyDark,
   );
+  static const TextStyle lightHeading3 = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.grey,
+  );
 
   static const TextStyle lightSubheading = TextStyle(
     fontFamily: fontFamily,
@@ -64,6 +70,12 @@ class AppFont {
     fontFamily: fontFamily,
     fontSize: 20,
     fontWeight: FontWeight.w600,
+    color: AppColors.grey,
+  );
+  static const TextStyle darkHeading3 = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
     color: AppColors.grey,
   );
 
