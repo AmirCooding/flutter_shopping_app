@@ -106,7 +106,13 @@ This project is a comprehensive online shopping application designed to provide 
   <img src="https://github.com/user-attachments/assets/92b9c503-8ab3-4f3b-a3f5-a4c5918d0d1c" style="width: 150px; height: 300px;" alt="Bild 4">
   <img src="https://github.com/user-attachments/assets/0e19b6d8-2ee9-4e06-964b-e83e2864c324" style="width: 150px; height: 300px;" alt="Bild 5">
   <img src="https://github.com/user-attachments/assets/4bfe5dfc-ded2-4919-908e-670f780fa423" style="width: 150px; height: 300px;" alt="Bild 6">
+  <img src="https://github.com/user-attachments/assets/a55ae68a-4ab7-4c5a-bf6b-5e0853c77cbb" style="width: 150px; height: 300px;" alt="Bild 7">
+  <img src="https://github.com/user-attachments/assets/a6e7fb0d-2a2b-4211-8716-d7d5583f77a6" style="width: 150px; height: 300px;" alt="Bild 8">
+  <img src="https://github.com/user-attachments/assets/2e29f66b-19d4-41a6-a149-415abcadcf7b" style="width: 150px; height: 300px;" alt="Bild 9">
 </div>
+
+
+
 
 
 ## Modern Dark Theme – English Edition
@@ -118,7 +124,11 @@ This project is a comprehensive online shopping application designed to provide 
    <img src="https://github.com/user-attachments/assets/5d2d93da-8d14-4256-bf17-c904bc0ea4e8" style="width: 150px; height: 300px;" alt="Bild 4">
    <img src="https://github.com/user-attachments/assets/1ae37665-5363-4f83-9324-4c3094cf19b6" style="width: 150px; height: 300px;" alt="Bild 5">
    <img src="https://github.com/user-attachments/assets/77dbd9e1-2881-45d3-a3ae-629d05e56295" style="width: 150px; height: 300px;" alt="Bild 6">
+   <img src="https://github.com/user-attachments/assets/3e8d589d-d940-4a64-a261-71589b9c6a17" style="width: 150px; height: 300px;" alt="Bild 7">
+   <img src="https://github.com/user-attachments/assets/a041c0e8-9bba-49aa-a919-d37937979f95" style="width: 150px; height: 300px;" alt="Bild 8">
+   <img src="https://github.com/user-attachments/assets/a40ba2b1-2a3b-4b43-915a-4a705c593a22" style="width: 150px; height: 300px;" alt="Bild 9">
 </div>
+
 
 
 
