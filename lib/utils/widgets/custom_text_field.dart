@@ -7,6 +7,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String placeholder;
   final String title;
+  final bool isOptional;
   final IconData? iconBefore;
   final IconData? iconAfter;
   final IconData? prefixIcon;
@@ -18,6 +19,7 @@ class CustomTextField extends StatefulWidget {
     required this.controller,
     required this.placeholder,
     required this.title,
+    this.isOptional = false,
     this.iconBefore,
     this.iconAfter,
     this.showIcon = true,
@@ -41,9 +43,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.title,
-            style: isDarkMode ? AppFont.darkTitle : AppFont.ligthTitle,
+          Row(
+            children: [
+              Text(
+                widget.title,
+                style: isDarkMode ? AppFont.darkTitle : AppFont.ligthTitle,
+              ),
+              if (widget.isOptional)
+                const Text(
+                  ' *',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 5),
           TextField(
@@ -85,7 +100,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   width: 1,
                 ),
               ),
-              // Fokusändert sich nicht mehr
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
