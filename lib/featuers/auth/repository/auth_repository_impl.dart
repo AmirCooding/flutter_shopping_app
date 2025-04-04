@@ -17,12 +17,12 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<void> resetPassword(String email) async {
-    await appUserAuth.resetPassword(email);
+    await appUserAuth.updatePassword(email);
   }
 
   @override
   Future<void> signInWithEmailAndPassword(AppUser user) async {
-    await appUserAuth.signInWithEmailAndPassword(user.email, user.password);
+    await appUserAuth.signInWithEmailAndPassword(user);
   }
 
   @override

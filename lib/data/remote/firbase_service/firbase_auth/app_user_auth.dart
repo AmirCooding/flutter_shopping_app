@@ -9,11 +9,10 @@ class FirebaseAuthenticationService {
   FirebaseAuthenticationService({required this.firebaseAuth});
 
   // Sign up with email and password, generating a custom UID
-  Future<AppUser> signUpWithEmailAndPassword(
-      String email, String password) async {
+  Future<AppUser> signUpWithEmailAndPassword(AppUser appUser) async {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
+          email: appUser.email, password: appUser.password);
       String customUid = Uuid().v4();
       setUserId(customUid);
       User? currentUser = firebaseAuth.currentUser;
@@ -22,8 +21,8 @@ class FirebaseAuthenticationService {
       }
       AppUser user = AppUser(
         uid: customUid,
-        email: email,
-        password: password,
+        email: appUser.email,
+        password: appUser.password,
       );
       return user;
     } on FirebaseAuthException catch (e) {
@@ -40,15 +39,15 @@ class FirebaseAuthenticationService {
   }
 
   //Signin with Email and paasword
-  Future<AppUser> signInWithEmailAndPassword(
-      String email, String password) async {
+  Future<AppUser> signInWithEmailAndPassword(AppUser user) async {
     try {
-      UserCredential userCredential = await firebaseAuth
-          .signInWithEmailAndPassword(email: email, password: password);
+      UserCredential userCredential =
+          await firebaseAuth.signInWithEmailAndPassword(
+              email: user.email, password: user.password);
       return AppUser(
         uid: userCredential.user!.uid,
-        email: email,
-        password: password,
+        email: user.email,
+        password: user.password,
       );
     } on FirebaseAuthException catch (e) {
       throw (ErrorHandling.handleAuthException(e));
@@ -62,32 +61,13 @@ class FirebaseAuthenticationService {
     } on FirebaseAuthException catch (e) {
       throw (ErrorHandling.handleAuthException(e));
     }
-
-    // recovery password
-    Future<void> resetPassword(String email) async {
-      try {
-        await firebaseAuth.sendPasswordResetEmail(email: email);
-      } on FirebaseAuthException catch (e) {
-        throw (ErrorHandling.handleAuthException(e));
-      }
-    }
   }
 
-// reset password
-  Future<void> resetPassword(String email) async {
-    try {
-      await firebaseAuth.sendPasswordResetEmail(email: email);
-    } on FirebaseAuthException catch (e) {
-      throw (ErrorHandling.handleAuthException(e));
-    }
-  }
-
-  // update password
-  Future<void> updatePassword(String password) async {
+  Future<void> updatePassword(String email) async {
     try {
       User? user = firebaseAuth.currentUser;
       if (user != null) {
-        await user.updatePassword(password);
+        await user.updatePassword(email);
       }
     } on FirebaseAuthException catch (e) {
       throw (ErrorHandling.handleAuthException(e));

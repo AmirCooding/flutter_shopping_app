@@ -18,8 +18,7 @@ class FirebaseFireSotreService {
   // create a profile in firestore
   Future<void> signUp(Profile profile) async {
     try {
-      await appUserAuth.signUpWithEmailAndPassword(
-          profile.user.email, profile.user.password);
+      await appUserAuth.signUpWithEmailAndPassword(profile.user);
       final profileData = {
         'uid': profile.uid,
         'fullName': profile.fullName,

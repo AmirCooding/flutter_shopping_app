@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ustore/common/language_manager.dart';
 
 class ErrorHandling {
+  static var locale = LanguageManager().locale;
   static const String NO_INTERNET_CONNECTION = "No internet connection";
   static const String TIMEOUT = "Timeout";
   static const String UNKNOWN = "Unknown";
@@ -49,8 +51,45 @@ class ErrorHandling {
   static const String UNAVAILABLE_FOR_LEGAL_REASONS =
       "Unavailable For Legal Reasons";
   static const String UNAVAILABLE_FOR_LEGAL_CATEGROY =
-      "Unavailable For Legal category";
+      "Unavailable For Legal Category";
   static const String PRODUCT_NOT_FOUND = "Product Not Found";
+  static dynamic handleAuthException(FirebaseAuthException e) {
+    if (locale == 'de') {
+      switch (e.code) {
+        case 'user-not-found':
+          return "Benutzer nicht gefunden";
+        case 'wrong-password':
+          return "Falsches Passwort";
+        case 'invalid-email':
+          return "Ungültige E-Mail";
+        case 'email-already-in-use':
+          return "E-Mail bereits in Verwendung";
+        case 'operation-not-allowed':
+          return "Operation nicht erlaubt";
+        case 'weak-password':
+          return "Schwaches Passwort";
+        default:
+          return "Unbekannter Fehler";
+      }
+    } else {
+      switch (e.code) {
+        case 'user-not-found':
+          return "User not found";
+        case 'wrong-password':
+          return "Wrong password";
+        case 'invalid-email':
+          return "Invalid email";
+        case 'email-already-in-use':
+          return "Email already in use";
+        case 'operation-not-allowed':
+          return "Operation not allowed";
+        case 'weak-password':
+          return "Weak password";
+        default:
+          return "Unknown error";
+      }
+    }
+  }
 
   static String getErrorMessage(String error) {
     switch (error) {
@@ -154,53 +193,298 @@ class ErrorHandling {
   }
 
   static dynamic handleResponse(int response) {
-    switch (response) {
-      case 204:
-        return "✅ No Content (204)";
-      case 400:
-        throw Exception("⚠️ Bad Request (400)");
-      case 401:
-        throw Exception("🚫 Unauthorized (401)}");
-      case 403:
-        throw Exception("🔒 Forbidden (403)");
-      case 404:
-        throw Exception("❌ Not Found (404)");
-      case 408:
-        throw Exception("⏳ Request Timeout (408)");
-      case 409:
-        throw Exception("⚠️ Conflict (409)");
-      case 429:
-        throw Exception("🚦 Too Many Requests (429): Slow down!");
-      case 500:
-        throw Exception("💥 Internal Server Error (500)");
-      case 502:
-        throw Exception("🌐 Bad Gateway (502)");
-      case 503:
-        throw Exception("🛠️ Service Unavailable (503)");
-      case 504:
-        throw Exception("⏳ Gateway Timeout (504)");
-      default:
-        throw Exception(
-            "❓ Unexpected Error ($response): Please try again later!");
+    if (locale == 'de') {
+      switch (response) {
+        case 200:
+          return "✅ OK (200)";
+        case 201:
+          return "✅ Created (201)";
+        case 204:
+          return "✅ No Content (204)";
+        case 400:
+          throw Exception("⚠️ Bad Request (400)");
+        case 401:
+          throw Exception("🚫 Unauthorized (401)}");
+        case 403:
+          throw Exception("🔒 Forbidden (403)");
+        case 404:
+          throw Exception("❌ Not Found (404)");
+        case 408:
+          throw Exception("⏳ Request Timeout (408)");
+        case 409:
+          throw Exception("⚠️ Conflict (409)");
+        case 429:
+          throw Exception("🚦 Too Many Requests (429): Slow down!");
+        case 500:
+          throw Exception("💥 Internal Server Error (500)");
+        case 502:
+          throw Exception("🌐 Bad Gateway (502)");
+        case 503:
+          throw Exception("🛠️ Service Unavailable (503)");
+        case 504:
+          throw Exception("⏳ Gateway Timeout (504)");
+        default:
+          throw Exception(
+              "❓ Unexpected Error ($response): Please try again later!");
+      }
+    } else {
+      switch (response) {
+        case 204:
+          return "✅ No Content (204)";
+        case 400:
+          throw Exception("⚠️ Bad Request (400)");
+        case 401:
+          throw Exception("🚫 Unauthorized (401)}");
+        case 403:
+          throw Exception("🔒 Forbidden (403)");
+        case 404:
+          throw Exception("❌ Not Found (404)");
+        case 408:
+          throw Exception("⏳ Request Timeout (408)");
+        case 409:
+          throw Exception("⚠️ Conflict (409)");
+        case 429:
+          throw Exception("🚦 Too Many Requests (429): Slow down!");
+        case 500:
+          throw Exception("💥 Internal Server Error (500)");
+        case 502:
+          throw Exception("🌐 Bad Gateway (502)");
+        case 503:
+          throw Exception("🛠️ Service Unavailable (503)");
+        case 504:
+          throw Exception("⏳ Gateway Timeout (504)");
+        default:
+          throw Exception(
+              "❓ Unexpected Error ($response): Please try again later!");
+      }
     }
   }
 
-  static Exception handleAuthException(FirebaseAuthException e) {
-    switch (e.code) {
-      case 'email-already-in-use':
-        return Exception("Diese E-Mail-Adresse ist bereits registriert.");
-      case 'user-not-found':
-        return Exception("Kein Benutzer mit dieser E-Mail gefunden.");
-      case 'wrong-password':
-        return Exception("Falsches Passwort.");
-      case 'weak-password':
-        return Exception("Das Passwort ist zu schwach.");
-      case 'invalid-email':
-        return Exception("Ungültige E-Mail-Adresse.");
-      case 'too-many-requests':
-        return Exception("Zu viele Anmeldeversuche. Bitte später versuchen.");
-      default:
-        return Exception("Unbekannter Fehler: ${e.message}");
+  static void passwordValidation(String password, String repeatPassword) {
+    if (locale == 'de') {
+      if (password != repeatPassword) {
+        throw Exception("Passwords do not match");
+      }
+      if (password.isEmpty) {
+        throw Exception("Please fill all fields");
+      }
+      if (password.length < 6) {
+        throw Exception("Password must be at least 6 characters long");
+      }
+      if (password.length > 20) {
+        throw Exception("Password must be at most 20 characters long");
+      }
+      if (password.contains(" ")) {
+        throw Exception("Password cannot contain spaces");
+      }
+      if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$')
+          .hasMatch(password)) {
+        throw Exception(
+            "Password must contain at least one uppercase letter, one lowercase letter, and one number");
+      }
+    } else {
+      if (password != repeatPassword) {
+        throw Exception("Passwords do not match");
+      }
+      if (password.isEmpty) {
+        throw Exception("Please fill all fields");
+      }
+      if (password.length < 6) {
+        throw Exception("Password must be at least 6 characters long");
+      }
+      if (password.length > 20) {
+        throw Exception("Password must be at most 20 characters long");
+      }
+      if (password.contains(" ")) {
+        throw Exception("Password cannot contain spaces");
+      }
+      if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$')
+          .hasMatch(password)) {
+        throw Exception(
+            "Password must contain at least one uppercase letter, one lowercase letter, and one number");
+      }
+    }
+  }
+
+  static void phoneValidation(String? phone) {
+    if (locale == 'de') {
+      if (phone == null || phone.isEmpty) {
+        throw Exception("Bitte fülle alle Felder aus");
+      }
+      if (phone.length < 10) {
+        throw Exception(
+            "Die Telefonnummer muss mindestens 10 Ziffern lang sein");
+      }
+      if (phone.length > 15) {
+        throw Exception("Die Telefonnummer darf maximal 15 Ziffern lang sein");
+      }
+      if (phone.contains(" ")) {
+        throw Exception("Die Telefonnummer darf keine Leerzeichen enthalten");
+      }
+      if (!RegExp(r'^[0-9]+$').hasMatch(phone)) {
+        throw Exception("Die Telefonnummer darf nur Ziffern enthalten");
+      }
+    } else {
+      if (phone != null) {
+        if (phone.length < 10) {
+          throw Exception("Phone number must be at least 10 digits long");
+        }
+        if (phone.length > 15) {
+          throw Exception("Phone number must be at most 15 digits long");
+        }
+        if (phone.contains(" ")) {
+          throw Exception("Phone number cannot contain spaces");
+        }
+        if (!RegExp(r'^[0-9]+$').hasMatch(phone)) {
+          throw Exception("Phone number can only contain numbers");
+        }
+      }
+    }
+  }
+
+  static void nameValidation(String name) {
+    if (locale == 'de') {
+      if (name.isEmpty) {
+        throw Exception("Bitte fülle alle Felder aus");
+      }
+      if (name.length < 3) {
+        throw Exception("Name muss mindestens 3 Zeichen lang sein");
+      }
+      if (name.length > 50) {
+        throw Exception("Name darf maximal 50 Zeichen lang sein");
+      }
+      if (name.contains(" ")) {
+        throw Exception("Name darf keine Leerzeichen enthalten");
+      }
+      if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(name)) {
+        throw Exception("Name darf nur Buchstaben und Leerzeichen enthalten");
+      }
+    } else {
+      if (name.isEmpty) {
+        throw Exception("Please fill all fields");
+      }
+      if (name.length < 3) {
+        throw Exception("Name must be at least 3 characters long");
+      }
+      if (name.length > 50) {
+        throw Exception("Name must be at most 50 characters long");
+      }
+      if (name.contains(" ")) {
+        throw Exception("Name cannot contain spaces");
+      }
+      if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(name)) {
+        throw Exception("Name can only contain letters and spaces");
+      }
+    }
+  }
+
+  static void addressValidation(String address) {
+    if (locale == "de") {
+      if (address.isEmpty) {
+        throw Exception("Bitte fülle alle Felder aus");
+      }
+      if (address.length < 5) {
+        throw Exception("Adresse muss mindestens 5 Zeichen lang sein");
+      }
+      if (address.length > 100) {
+        throw Exception("Adresse darf maximal 100 Zeichen lang sein");
+      }
+      if (address.contains(" ")) {
+        throw Exception("Adresse darf keine Leerzeichen enthalten");
+      }
+    } else {
+      if (address.isEmpty) {
+        throw Exception("Please fill all fields");
+      }
+      if (address.length < 5) {
+        throw Exception("Address must be at least 5 characters long");
+      }
+      if (address.length > 100) {
+        throw Exception("Address must be at most 100 characters long");
+      }
+      if (address.contains(" ")) {
+        throw Exception("Address cannot contain spaces");
+      }
+    }
+  }
+
+  static void emailValidation(String email) {
+    if (locale == 'de') {
+      if (email.isEmpty) {
+        throw Exception("Bitte fülle alle Felder aus");
+      }
+      if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+          .hasMatch(email)) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.length < 5) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.length > 50) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.contains(" ")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.startsWith("@")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.endsWith("@")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.contains("@@")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.contains("..")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.contains("@.")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.contains(".@")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+      if (email.contains("..")) {
+        throw Exception("Bitte gib eine gültige E-Mail-Adresse ein");
+      }
+    } else {
+      if (email.isEmpty) {
+        throw Exception("Please fill all fields");
+      }
+      if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+          .hasMatch(email)) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.length < 5) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.length > 50) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.contains(" ")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.startsWith("@")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.endsWith("@")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.contains("@@")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.contains("..")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.contains("@.")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.contains(".@")) {
+        throw Exception("Please enter a valid email");
+      }
+      if (email.contains("..")) {
+        throw Exception("Please enter a valid email");
+      }
     }
   }
 }
