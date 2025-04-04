@@ -11,12 +11,12 @@ class FirebaseFireSotreService {
   final FirebaseAuthenticationService appUserAuth;
   final FirbaseStorageService storageService;
   FirebaseFireSotreService(
-      {required this.storageService,
+      {required this.firestore,
       required this.appUserAuth,
-      required this.firestore});
+      required this.storageService});
 
   // create a profile in firestore
-  Future<void> createProfile(Profile profile) async {
+  Future<void> signUp(Profile profile) async {
     try {
       await appUserAuth.signUpWithEmailAndPassword(
           profile.user.email, profile.user.password);

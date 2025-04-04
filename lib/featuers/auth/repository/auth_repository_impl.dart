@@ -41,7 +41,7 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<void> createProfile(Profile profie) async {
-    await firestoreService.createProfile(profie);
+  Future<void> signUp(Profile profie) async {
+    await firestoreService.signUp(profie);
   }
 }
