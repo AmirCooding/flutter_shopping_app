@@ -4,7 +4,6 @@ import 'package:ustore/common/custom_indecator.dart';
 import 'package:ustore/common/display_dimensions.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_data_status.dart';
-import 'package:ustore/gen/assets.gen.dart';
 import 'package:ustore/utils/widgets/loading_screen.dart';
 
 class BannerScreen extends StatelessWidget {

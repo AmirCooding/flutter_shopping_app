@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/data/remote/firbase_service/firbase_firestore/firestore_firebase_service.dart';
+import 'package:ustore/featuers/auth/presentation/cubit/auth_cubit.dart';
 import 'package:ustore/featuers/auth/presentation/screens/Sign_up_screen.dart';
 import 'package:ustore/featuers/auth/presentation/screens/recovery_password.dart';
 import 'package:ustore/featuers/auth/presentation/screens/sign_in_screen.dart';
@@ -44,6 +45,7 @@ void main() async {
       ),
       BlocProvider<BottomNavCubit>(create: (context) => BottomNavCubit()),
       BlocProvider<HomeCubit>(create: (context) => HomeCubit(locator())),
+      BlocProvider(create: (context) => AuthCubit(locator())),
     ],
     child: MyApp(),
   ));

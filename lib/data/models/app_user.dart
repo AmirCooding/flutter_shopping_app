@@ -1,9 +1,11 @@
+import 'package:uuid/uuid.dart';
+
 class AppUser {
-  final String uid;
+  final String uid = const Uuid().v4();
   final String email;
   final String password;
 
-  AppUser({required this.uid, required this.email, required this.password});
+  AppUser({required this.email, required this.password});
 
   Map<String, dynamic> toJson() {
     return {
@@ -14,7 +16,6 @@ class AppUser {
 
   factory AppUser.fromJson(Map<String, dynamic> json) {
     return AppUser(
-      uid: json['id'],
       email: json['email'],
       password: json['password'],
     );

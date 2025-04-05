@@ -11,11 +11,10 @@ class AuthCubit extends Cubit<AuthState> {
   final AuthUsecase authUsecase;
   AuthCubit(this.authUsecase) : super(AuthState(status: AuthDataInitial()));
 
-  Future<void> signUp(
-      Profile profile, String repeatPassword, String locale) async {
+  Future<void> signUp(Profile profile, String repeatPassword) async {
     emit(state.copyWith(newStatus: AuthDataLoading()));
     try {
-      await authUsecase.signUp(profile, repeatPassword, locale);
+      await authUsecase.signUp(profile, repeatPassword);
       emit(state.copyWith(newStatus: AuthSignUpSuccess(profile)));
     } on FirebaseAuthException catch (e) {
       emit(state.copyWith(newStatus: AuthDataFailure(e)));

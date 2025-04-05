@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ustore/common/error_handling.dart';
 import 'package:ustore/data/models/app_user.dart';
-import 'package:uuid/uuid.dart';
 
 class FirebaseAuthenticationService {
   final FirebaseAuth firebaseAuth;
@@ -13,14 +12,13 @@ class FirebaseAuthenticationService {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: appUser.email, password: appUser.password);
-      String customUid = Uuid().v4();
-      setUserId(customUid);
+
+      setUserId(appUser.uid);
       User? currentUser = firebaseAuth.currentUser;
       if (currentUser != null) {
-        await currentUser.updateDisplayName(customUid);
+        await currentUser.updateDisplayName(appUser.uid);
       }
       AppUser user = AppUser(
-        uid: customUid,
         email: appUser.email,
         password: appUser.password,
       );
@@ -41,11 +39,9 @@ class FirebaseAuthenticationService {
   //Signin with Email and paasword
   Future<AppUser> signInWithEmailAndPassword(AppUser user) async {
     try {
-      UserCredential userCredential =
-          await firebaseAuth.signInWithEmailAndPassword(
-              email: user.email, password: user.password);
+      await firebaseAuth.signInWithEmailAndPassword(
+          email: user.email, password: user.password);
       return AppUser(
-        uid: userCredential.user!.uid,
         email: user.email,
         password: user.password,
       );

@@ -6,7 +6,6 @@ import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
 import 'package:ustore/config/theme/app_font.dart';
-import 'package:ustore/gen/assets.gen.dart';
 import 'package:ustore/utils/widgets/custom_button.dart';
 import 'package:ustore/utils/widgets/custom_text_field.dart';
 

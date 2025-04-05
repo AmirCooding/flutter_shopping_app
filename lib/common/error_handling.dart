@@ -307,38 +307,38 @@ class ErrorHandling {
   }
 
   static void phoneValidation(String? phone) {
-    if (locale == 'de') {
-      if (phone == null || phone.isEmpty) {
-        throw Exception("Bitte fülle alle Felder aus");
-      }
-      if (phone.length < 10) {
-        throw Exception(
-            "Die Telefonnummer muss mindestens 10 Ziffern lang sein");
-      }
-      if (phone.length > 15) {
-        throw Exception("Die Telefonnummer darf maximal 15 Ziffern lang sein");
-      }
-      if (phone.contains(" ")) {
-        throw Exception("Die Telefonnummer darf keine Leerzeichen enthalten");
-      }
-      if (!RegExp(r'^[0-9]+$').hasMatch(phone)) {
-        throw Exception("Die Telefonnummer darf nur Ziffern enthalten");
-      }
-    } else {
-      if (phone != null) {
-        if (phone.length < 10) {
-          throw Exception("Phone number must be at least 10 digits long");
-        }
-        if (phone.length > 15) {
-          throw Exception("Phone number must be at most 15 digits long");
-        }
-        if (phone.contains(" ")) {
-          throw Exception("Phone number cannot contain spaces");
-        }
-        if (!RegExp(r'^[0-9]+$').hasMatch(phone)) {
-          throw Exception("Phone number can only contain numbers");
-        }
-      }
+    final locale = LanguageManager().locale;
+
+    if (phone == null || phone.trim().isEmpty) {
+      throw Exception(locale == 'de'
+          ? "Bitte geben Sie eine Telefonnummer ein"
+          : "Please enter a phone number");
+    }
+
+    final trimmedPhone = phone.trim();
+
+    if (trimmedPhone.length < 10) {
+      throw Exception(locale == 'de'
+          ? "Die Telefonnummer muss mindestens 10 Ziffern lang sein"
+          : "Phone number must be at least 10 digits long");
+    }
+
+    if (trimmedPhone.length > 15) {
+      throw Exception(locale == 'de'
+          ? "Die Telefonnummer darf maximal 15 Ziffern lang sein"
+          : "Phone number must be at most 15 digits long");
+    }
+
+    if (trimmedPhone.contains(" ")) {
+      throw Exception(locale == 'de'
+          ? "Die Telefonnummer darf keine Leerzeichen enthalten"
+          : "Phone number cannot contain spaces");
+    }
+
+    if (!RegExp(r'^[0-9]+$').hasMatch(trimmedPhone)) {
+      throw Exception(locale == 'de'
+          ? "Die Telefonnummer darf nur Ziffern enthalten"
+          : "Phone number can only contain numbers");
     }
   }
 

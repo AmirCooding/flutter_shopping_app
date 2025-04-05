@@ -6,7 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ustore/gen/assets.gen.dart'; // falls du SVG nutzt
 
 class ProfileImagePicker extends StatefulWidget {
-  const ProfileImagePicker({super.key});
+  final void Function(String path)? onImagePicked;
+  const ProfileImagePicker({super.key, this.onImagePicked});
 
   @override
   State<ProfileImagePicker> createState() => _ProfileImagePickerState();
@@ -18,11 +19,12 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
   Future<void> _pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-    debugPrint('Image path: ${image?.path}');
+
     if (image != null) {
       setState(() {
         _selectedImage = File(image.path);
       });
+      widget.onImagePicked?.call(image.path);
     }
   }
 
@@ -37,7 +39,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
             _selectedImage != null ? FileImage(_selectedImage!) : null,
         child: _selectedImage == null
             ? SvgPicture.asset(
-                Assets.images.blankProfile, // dein SVG-Pfad
+                Assets.images.blankProfile,
                 width: 50,
               )
             : null,
