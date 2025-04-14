@@ -53,6 +53,10 @@ class ErrorHandling {
   static const String UNAVAILABLE_FOR_LEGAL_CATEGROY =
       "Unavailable For Legal Category";
   static const String PRODUCT_NOT_FOUND = "Product Not Found";
+  static const String SHOULD_BE_LOGIN =
+      "You should be logged in to perform this action";
+  static const String EMPTY_FIELD = "Please fill all fields";
+
   static dynamic handleAuthException(FirebaseAuthException e) {
     if (locale == 'de') {
       switch (e.code) {
@@ -92,103 +96,208 @@ class ErrorHandling {
   }
 
   static String getErrorMessage(String error) {
-    switch (error) {
-      case NO_INTERNET_CONNECTION:
-        return "No internet connection";
-      case TIMEOUT:
-        return "Timeout";
-      case UNKNOWN:
-        return "Unknown";
-      case UNAUTHORIZED:
-        return "Unauthorized";
-      case FORBIDDEN:
-        return "Forbidden";
-      case NOT_FOUND:
-        return "Not Found";
-      case INTERNAL_SERVER_ERROR:
-        return "Internal Server Error";
-      case BAD_GATEWAY:
-        return "Bad Gateway";
-      case SERVICE_UNAVAILABLE:
-        return "Service Unavailable";
-      case GATEWAY_TIMEOUT:
-        return "Gateway Timeout";
-      case REQUEST_TIMEOUT:
-        return "Request Timeout";
-      case NETWORK_ERROR:
-        return "Network Error";
-      case UNEXPECTED_ERROR:
-        return "Unexpected Error";
-      case INVALID_RESPONSE:
-        return "Invalid Response";
-      case INVALID_REQUEST:
-        return "Invalid Request";
-      case INVALID_PARAMETER:
-        return "Invalid Parameter";
-      case INVALID_TOKEN:
-        return "Invalid Token";
-      case INVALID_CREDENTIALS:
-        return "Invalid Credentials";
-      case INVALID_EMAIL:
-        return "Invalid Email";
-      case INVALID_PASSWORD:
-        return "Invalid Password";
-      case INVALID_PHONE:
-        return "Invalid Phone";
-      case INVALID_NAME:
-        return "Invalid Name";
-      case INVALID_ADDRESS:
-        return "Invalid Address";
-      case INVALID_DATE:
-        return "Invalid Date";
-      case INVALID_CODE:
-        return "Invalid Code";
-      case INVALID_VERIFICATION:
-        return "Invalid Verification";
-      case INVALID_VERIFICATION_CODE:
-        return "Invalid Verification Code";
-      case CONFLICT:
-        return "Conflict";
-      case PRECONDITION_FAILED:
-        return "Precondition Failed";
-      case PAYLOAD_TOO_LARGE:
-        return "Payload Too Large";
-      case URI_TOO_LONG:
-        return "URI Too Long";
-      case UNSUPPORTED_MEDIA_TYPE:
-        return "Unsupported Media Type";
-      case RANGE_NOT_SATISFIABLE:
-        return "Range Not Satisfiable";
-      case EXPECTATION_FAILED:
-        return "Expectation Failed";
-      case I_AM_A_TEAPOT:
-        return "I'm a teapot";
-      case MISDIRECTED_REQUEST:
-        return "Misdirected Request";
-      case UNPROCESSABLE_ENTITY:
-        return "Unprocessable Entity";
-      case LOCKED:
-        return "Locked";
-      case FAILED_DEPENDENCY:
-        return "Failed Dependency";
-      case TOO_EARLY:
-        return "Too Early";
-      case UPGRADE_REQUIRED:
-        return "Upgrade Required";
-      case PRECONDITION_REQUIRED:
-        return "Precondition Required";
-      case TOO_MANY_REQUESTS:
-        return "Too Many Requests";
-      case REQUEST_HEADER_FIELDS_TOO_LARGE:
-        return "Request Header Fields Too Large";
-      case UNAVAILABLE_FOR_LEGAL_REASONS:
-        return "Unavailable For Legal Reasons";
-      case UNAVAILABLE_FOR_LEGAL_CATEGROY:
-        return "Unavailable For Legal Reasons";
-      case PRODUCT_NOT_FOUND:
-        return "Product Not Found";
-      default:
-        return "Unknown";
+    if (locale == 'de') {
+      switch (error) {
+        case NO_INTERNET_CONNECTION:
+          return "Keine Internetverbindung";
+        case TIMEOUT:
+          return "Zeitüberschreitung";
+        case UNKNOWN:
+          return "Unbekannter Fehler";
+        case UNAUTHORIZED:
+          return "Nicht autorisiert";
+        case FORBIDDEN:
+          return "Zugriff verweigert";
+        case NOT_FOUND:
+          return "Nicht gefunden";
+        case INTERNAL_SERVER_ERROR:
+          return "Interner Serverfehler";
+        case BAD_GATEWAY:
+          return "Fehlerhaftes Gateway";
+        case SERVICE_UNAVAILABLE:
+          return "Dienst nicht verfügbar";
+        case GATEWAY_TIMEOUT:
+          return "Gateway-Zeitüberschreitung";
+        case REQUEST_TIMEOUT:
+          return "Anfrage-Zeitüberschreitung";
+        case NETWORK_ERROR:
+          return "Netzwerkfehler";
+        case UNEXPECTED_ERROR:
+          return "Unerwarteter Fehler";
+        case INVALID_RESPONSE:
+          return "Ungültige Antwort";
+        case INVALID_REQUEST:
+          return "Ungültige Anfrage";
+        case INVALID_PARAMETER:
+          return "Ungültiger Parameter";
+        case INVALID_TOKEN:
+          return "Ungültiges Token";
+        case INVALID_CREDENTIALS:
+          return "Ungültige Anmeldedaten";
+        case INVALID_EMAIL:
+          return "Ungültige E-Mail";
+        case INVALID_PASSWORD:
+          return "Ungültiges Passwort";
+        case INVALID_PHONE:
+          return "Ungültige Telefonnummer";
+        case INVALID_NAME:
+          return "Ungültiger Name";
+        case INVALID_ADDRESS:
+          return "Ungültige Adresse";
+        case INVALID_DATE:
+          return "Ungültiges Datum";
+        case INVALID_CODE:
+          return "Ungültiger Code";
+        case INVALID_VERIFICATION:
+        case INVALID_VERIFICATION_CODE:
+          return "Ungültiger Verifizierungscode";
+        case CONFLICT:
+          return "Konflikt";
+        case PRECONDITION_FAILED:
+          return "Vorbedingung fehlgeschlagen";
+        case PAYLOAD_TOO_LARGE:
+          return "Nutzlast zu groß";
+        case URI_TOO_LONG:
+          return "URI zu lang";
+        case UNSUPPORTED_MEDIA_TYPE:
+          return "Nicht unterstützter Medientyp";
+        case RANGE_NOT_SATISFIABLE:
+          return "Bereich nicht erfüllbar";
+        case EXPECTATION_FAILED:
+          return "Erwartung fehlgeschlagen";
+        case I_AM_A_TEAPOT:
+          return "Ich bin eine Teekanne ☕️";
+        case MISDIRECTED_REQUEST:
+          return "Falsch gerichtete Anfrage";
+        case UNPROCESSABLE_ENTITY:
+          return "Nicht verarbeitbare Entität";
+        case LOCKED:
+          return "Gesperrt";
+        case FAILED_DEPENDENCY:
+          return "Abhängigkeit fehlgeschlagen";
+        case TOO_EARLY:
+          return "Zu früh";
+        case UPGRADE_REQUIRED:
+          return "Aktualisierung erforderlich";
+        case PRECONDITION_REQUIRED:
+          return "Vorbedingung erforderlich";
+        case TOO_MANY_REQUESTS:
+          return "Zu viele Anfragen";
+        case REQUEST_HEADER_FIELDS_TOO_LARGE:
+          return "Anfrage-Header zu groß";
+        case UNAVAILABLE_FOR_LEGAL_REASONS:
+        case UNAVAILABLE_FOR_LEGAL_CATEGROY:
+          return "Aus rechtlichen Gründen nicht verfügbar";
+        case PRODUCT_NOT_FOUND:
+          return "Produkt nicht gefunden";
+        case SHOULD_BE_LOGIN:
+          return "Du musst eingeloggt sein, um das zu tun";
+        case EMPTY_FIELD:
+          return "Bitte fülle alle Felder aus";
+        default:
+          return "Unbekannter Fehler";
+      }
+    } else {
+      switch (error) {
+        case NO_INTERNET_CONNECTION:
+          return "No internet connection";
+        case TIMEOUT:
+          return "Timeout";
+        case UNKNOWN:
+          return "Unknown";
+        case UNAUTHORIZED:
+          return "Unauthorized";
+        case FORBIDDEN:
+          return "Forbidden";
+        case NOT_FOUND:
+          return "Not Found";
+        case INTERNAL_SERVER_ERROR:
+          return "Internal Server Error";
+        case BAD_GATEWAY:
+          return "Bad Gateway";
+        case SERVICE_UNAVAILABLE:
+          return "Service Unavailable";
+        case GATEWAY_TIMEOUT:
+          return "Gateway Timeout";
+        case REQUEST_TIMEOUT:
+          return "Request Timeout";
+        case NETWORK_ERROR:
+          return "Network Error";
+        case UNEXPECTED_ERROR:
+          return "Unexpected Error";
+        case INVALID_RESPONSE:
+          return "Invalid Response";
+        case INVALID_REQUEST:
+          return "Invalid Request";
+        case INVALID_PARAMETER:
+          return "Invalid Parameter";
+        case INVALID_TOKEN:
+          return "Invalid Token";
+        case INVALID_CREDENTIALS:
+          return "Invalid Credentials";
+        case INVALID_EMAIL:
+          return "Invalid Email";
+        case INVALID_PASSWORD:
+          return "Invalid Password";
+        case INVALID_PHONE:
+          return "Invalid Phone";
+        case INVALID_NAME:
+          return "Invalid Name";
+        case INVALID_ADDRESS:
+          return "Invalid Address";
+        case INVALID_DATE:
+          return "Invalid Date";
+        case INVALID_CODE:
+          return "Invalid Code";
+        case INVALID_VERIFICATION:
+        case INVALID_VERIFICATION_CODE:
+          return "Invalid Verification Code";
+        case CONFLICT:
+          return "Conflict";
+        case PRECONDITION_FAILED:
+          return "Precondition Failed";
+        case PAYLOAD_TOO_LARGE:
+          return "Payload Too Large";
+        case URI_TOO_LONG:
+          return "URI Too Long";
+        case UNSUPPORTED_MEDIA_TYPE:
+          return "Unsupported Media Type";
+        case RANGE_NOT_SATISFIABLE:
+          return "Range Not Satisfiable";
+        case EXPECTATION_FAILED:
+          return "Expectation Failed";
+        case I_AM_A_TEAPOT:
+          return "I'm a teapot";
+        case MISDIRECTED_REQUEST:
+          return "Misdirected Request";
+        case UNPROCESSABLE_ENTITY:
+          return "Unprocessable Entity";
+        case LOCKED:
+          return "Locked";
+        case FAILED_DEPENDENCY:
+          return "Failed Dependency";
+        case TOO_EARLY:
+          return "Too Early";
+        case UPGRADE_REQUIRED:
+          return "Upgrade Required";
+        case PRECONDITION_REQUIRED:
+          return "Precondition Required";
+        case TOO_MANY_REQUESTS:
+          return "Too Many Requests";
+        case REQUEST_HEADER_FIELDS_TOO_LARGE:
+          return "Request Header Fields Too Large";
+        case UNAVAILABLE_FOR_LEGAL_REASONS:
+        case UNAVAILABLE_FOR_LEGAL_CATEGROY:
+          return "Unavailable For Legal Reasons";
+        case PRODUCT_NOT_FOUND:
+          return "Product Not Found";
+        case SHOULD_BE_LOGIN:
+          return "You should be logged in to perform this action";
+        case EMPTY_FIELD:
+          return "Please fill all fields";
+        default:
+          return "Unknown";
+      }
     }
   }
 
@@ -280,7 +389,7 @@ class ErrorHandling {
       if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$')
           .hasMatch(password)) {
         throw Exception(
-            "Password must contain at least one uppercase letter, one lowercase letter, and one number");
+            "Das Passwort muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten und mindestens 6 Zeichen lang sein");
       }
     } else {
       if (password != repeatPassword) {
@@ -301,7 +410,7 @@ class ErrorHandling {
       if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$')
           .hasMatch(password)) {
         throw Exception(
-            "Password must contain at least one uppercase letter, one lowercase letter, and one number");
+            "Password must contain at least one uppercase letter, one lowercase letter, and one number, and be at least 6 characters long");
       }
     }
   }
@@ -310,9 +419,7 @@ class ErrorHandling {
     final locale = LanguageManager().locale;
 
     if (phone == null || phone.trim().isEmpty) {
-      throw Exception(locale == 'de'
-          ? "Bitte geben Sie eine Telefonnummer ein"
-          : "Please enter a phone number");
+      return;
     }
 
     final trimmedPhone = phone.trim();
@@ -353,9 +460,7 @@ class ErrorHandling {
       if (name.length > 50) {
         throw Exception("Name darf maximal 50 Zeichen lang sein");
       }
-      if (name.contains(" ")) {
-        throw Exception("Name darf keine Leerzeichen enthalten");
-      }
+
       if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(name)) {
         throw Exception("Name darf nur Buchstaben und Leerzeichen enthalten");
       }
@@ -368,9 +473,6 @@ class ErrorHandling {
       }
       if (name.length > 50) {
         throw Exception("Name must be at most 50 characters long");
-      }
-      if (name.contains(" ")) {
-        throw Exception("Name cannot contain spaces");
       }
       if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(name)) {
         throw Exception("Name can only contain letters and spaces");

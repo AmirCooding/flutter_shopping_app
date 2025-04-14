@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/custom_app.dart';
-import 'package:ustore/common/custom_snakbar.dart';
+import 'package:ustore/utils/widgets/custom_snakbar.dart';
 import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';
@@ -47,9 +45,22 @@ class SignUpScreen extends StatelessWidget {
               (state.status as AuthDataFailure).error.message ?? "Error",
             );
           }
-
+          if (state.status is AuthDataLoading) {
+            LoadingScreen();
+          }
           if (state.status is AuthSignUpSuccess) {
-            Navigator.pushNamed(context, SignInScreen.signIn);
+            CustomSnakbar.showSnackSuccess(
+              context,
+              locale == 'de'
+                  ? "Erfolgreich registriert"
+                  : "Successfully Signed Up",
+            );
+            Future.delayed(const Duration(seconds: 1));
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              SignInScreen.signIn,
+              (route) => false,
+            );
           }
         },
         child: BlocBuilder<AuthCubit, AuthState>(
@@ -77,7 +88,7 @@ class SignUpScreen extends StatelessWidget {
                             ),
                             Text(
                               locale == 'de'
-                                  ? "Geben Sie Ihre Daten ein, um sich anzumelden"
+                                  ? "Geben Sie Ihre Daten..."
                                   : "Enter your Details to Sign Up",
                               style: isDarkMode
                                   ? AppFont.darkHeading3

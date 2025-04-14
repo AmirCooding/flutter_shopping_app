@@ -19,7 +19,6 @@ class HomeCubit extends Cubit<HomeState> {
       emit(state.copyWith(
         newDataStatus: HomeDataLoaded(data: products),
       ));
-      log("message: Produkte geladen: ${products.length}");
     }).catchError((e) {
       emit(state.copyWith(newDataStatus: HomeDataError(message: e.toString())));
     });

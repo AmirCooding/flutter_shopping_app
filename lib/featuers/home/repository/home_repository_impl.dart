@@ -32,4 +32,19 @@ class HomeRepositoryImpl extends HomeReposiotry {
   Future<List<Product>> getProductsInDe() {
     return firstore.getProductsInDe();
   }
+
+  Future<void> addProductToFavorite(Product product, String userId) {
+    return firstore.addProductToFavorites(product, userId);
+  }
+
+  @override
+  Future<void> removeProductFromFavorite(Product product, String userId) {
+    return firstore.removeProductFromFavorite(product, userId);
+  }
+
+  @override
+  Future<int> getFavoritesCount(String userId) {
+    // TODO: implement getFavoritesCount
+    throw UnimplementedError();
+  }
 }

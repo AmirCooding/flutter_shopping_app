@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/gen/assets.gen.dart';
 import 'package:ustore/utils/widgets/prefs_operator.dart';
-import 'package:ustore/utils/widgets/main_wrapper.dart';
+import 'package:ustore/featuers/main_wrapper/presentation/screens/main_wrapper.dart';
 import 'package:ustore/utils/widgets/no_internent.dart';
 import 'package:ustore/featuers/intro/presentation/bloc/splash/splash_cubit.dart';
 import 'package:ustore/config/theme/app_colors.dart';

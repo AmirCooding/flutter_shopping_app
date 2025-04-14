@@ -1,20 +1,20 @@
-import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ustore/common/language_manager.dart';
-import 'package:ustore/data/remote/firbase_service/firbase_firestore/firestore_firebase_service.dart';
 import 'package:ustore/featuers/auth/presentation/cubit/auth_cubit.dart';
 import 'package:ustore/featuers/auth/presentation/screens/Sign_up_screen.dart';
 import 'package:ustore/featuers/auth/presentation/screens/recovery_password.dart';
 import 'package:ustore/featuers/auth/presentation/screens/sign_in_screen.dart';
+import 'package:ustore/featuers/cart/presentation/screens/cart_screen.dart';
+import 'package:ustore/featuers/details/cubit/details_cubit.dart';
 import 'package:ustore/featuers/details/screen/details_screen.dart';
+import 'package:ustore/featuers/favorite/presentation/screens/favorite_screen.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
-import 'package:ustore/utils/bloc/bottom_nav/bottom_nav_cubit.dart';
+import 'package:ustore/featuers/main_wrapper/presentation/cubit/main_wrapper_cubit.dart';
+import 'package:ustore/featuers/setting/presentation/Screens/profile_screen.dart';
 import 'package:ustore/utils/widgets/loading_screen.dart';
-import 'package:ustore/utils/widgets/main_wrapper.dart';
+import 'package:ustore/featuers/main_wrapper/presentation/screens/main_wrapper.dart';
 import 'package:ustore/utils/widgets/no_internent.dart';
 import 'package:ustore/utils/widgets/product_cart_screen.dart';
 import 'package:ustore/data/models/product.dart';
@@ -43,9 +43,11 @@ void main() async {
       BlocProvider<IntroCubit>(
         create: (context) => IntroCubit(locator()),
       ),
-      BlocProvider<BottomNavCubit>(create: (context) => BottomNavCubit()),
+      BlocProvider<MainWrapperCubit>(
+          create: (context) => MainWrapperCubit(locator())),
       BlocProvider<HomeCubit>(create: (context) => HomeCubit(locator())),
       BlocProvider(create: (context) => AuthCubit(locator())),
+      BlocProvider<DetailsCubit>(create: (context) => DetailsCubit(locator())),
     ],
     child: MyApp(),
   ));
@@ -68,13 +70,16 @@ class MyApp extends StatelessWidget {
         Locale('de', 'DE'),
       ],
       // Routes
-      //initialRoute: MainWrapper.mainWrapper,
+      initialRoute: MainWrapper.mainWrapper,
       //initialRoute: HomeScreen.home,
-      initialRoute: SignInScreen.signIn,
+      //initialRoute: SignInScreen.signIn,
 
       routes: {
         SplashScreen.splash: (context) => const SplashScreen(),
         ProductDetailsScreen.detailsScreen: (context) => ProductDetailsScreen(),
+        CartScreen.cartScreen: (context) => CartScreen(),
+        FavoriteScreen.favoriteScreen: (context) => FavoriteScreen(),
+        ProfileScreen.profileScreen: (context) => ProfileScreen(),
         HomeScreen.home: (context) => HomeScreen(),
         NoInternet.nointernet: (context) => const NoInternet(),
         LoadingScreen.loading: (context) => const LoadingScreen(),

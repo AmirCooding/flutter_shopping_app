@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ustore/common/custom_snakbar.dart';
+import 'package:ustore/utils/widgets/custom_snakbar.dart';
 import 'package:ustore/common/language_manager.dart';
 import 'package:ustore/common/theme_helper.dart';
 import 'package:ustore/config/theme/app_colors.dart';

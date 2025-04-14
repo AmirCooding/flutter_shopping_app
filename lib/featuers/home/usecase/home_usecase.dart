@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
-import 'package:flutter/cupertino.dart';
 import 'package:ustore/data/models/product.dart';
 import 'package:ustore/featuers/home/repository/home_reposiotry.dart';
 
@@ -17,9 +15,6 @@ class HomeUsecase {
       products = await _homeRepository.getProducts();
     }
     products.sort((a, b) => b.rating!.count!.compareTo(a.rating!.count!));
-    for (var product in products) {
-      debugPrint('Product: ${product.rating!.count}');
-    }
     for (int i = 0; i < 6; i++) {
       popularProducts.add(products[i]);
     }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ustore/common/custom_indecator.dart';
+import 'package:ustore/utils/widgets/custom_indecator.dart';
 import 'package:ustore/common/display_dimensions.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_cubit.dart';
 import 'package:ustore/featuers/home/presentation/bloc/home_data_status.dart';

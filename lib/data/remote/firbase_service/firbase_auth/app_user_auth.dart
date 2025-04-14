@@ -1,10 +1,12 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ustore/common/error_handling.dart';
 import 'package:ustore/data/models/app_user.dart';
 
 class FirebaseAuthenticationService {
   final FirebaseAuth firebaseAuth;
-  late String? userId = " ";
+  late String? userId = "";
   FirebaseAuthenticationService({required this.firebaseAuth});
 
   // Sign up with email and password, generating a custom UID
@@ -36,6 +38,12 @@ class FirebaseAuthenticationService {
     return userId!;
   }
 
+  Future<String> getCurrentUserId() async {
+    User? user = firebaseAuth.currentUser;
+    log("User ID from auth service: ${user?.uid}");
+    return user?.uid ?? '';
+  }
+
   //Signin with Email and paasword
   Future<AppUser> signInWithEmailAndPassword(AppUser user) async {
     try {
@@ -57,6 +65,10 @@ class FirebaseAuthenticationService {
     } on FirebaseAuthException catch (e) {
       throw (ErrorHandling.handleAuthException(e));
     }
+  }
+
+  bool isLoggedIn() {
+    return firebaseAuth.currentUser != null;
   }
 
   Future<void> updatePassword(String email) async {
